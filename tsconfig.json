@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+	 "module": "es2020",
+	 "moduleResolution": "node",
+	 "outDir": "./dist",
+	 "sourceMap": true,
+   //  "lib": [
+   //    "DOM",
+   //    // "dom.iterable",
+   //    "ESNext"
+   //  ],
+    "allowJs": true,
+	"jsx": "react",
+	"noImplicitAny": true,
+   //  "skipLibCheck": true,
+   //  "esModuleInterop": true,
+   //  "allowSyntheticDefaultImports": true,
+   //  "strict": true,
+   //  "forceConsistentCasingInFileNames": true,
+   //  "noFallthroughCasesInSwitch": true,
+   //  "resolveJsonModule": true,
+   //  "isolatedModules": true,
+   //  "noEmit": true
+  },
+  "include": [
+    "src"
+   //  "src/**/*"
+  ]
+}

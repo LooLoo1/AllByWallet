@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  scrollbar-width: none; /* for Firefox */
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+h1 {
+  @apply text-4xl;
+}
+h2 {
+  @apply text-[32px];
+}

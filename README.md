@@ -1,9 +1,9 @@
 # TODO List
 
-- [x] Add React project and integrate it with TypeScript.
-- [x] Introduce WebPack and connect it with React and TypeScript.
-- [x] Introduce Tailwind.
-- [x] Configure GitHub Actions to use GitHub Pages. So the built web site will be deployed on GitHub Pages.
-- [ ] Mimic the index page of https://tekstika.ee/, demo version. For demo, it does not communicate with the server so the frontend can complete it. (try not to see my original codes as much as possible).
+- [ ] More understand WebPack
+- [ ] Change TypeScript config
+- [ ] Configure GitHub Actions to use GitHub Pages and netlify
+      (https://app.netlify.com/teams/looloo1/overview
+      https://www.youtube.com/watch?v=ANj7qUgzNq4).
 
-
+Figma Design (https://www.figma.com/file/6MvcKIgv49OJ9OIsoIBnOe/(%D1%87%D0%BC%D0%BE%D0%BA%E2%99%A5)?node-id=0%3A1)

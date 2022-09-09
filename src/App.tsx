@@ -1,5 +1,10 @@
 import * as React from 'react';
+import Header from './components/Header'
 
 export const App = () => {
-	return <h1 className='p-3'>React TypeScript Webpack starter template</h1>
+	return (
+		<div className='bg-gray w-[428px] mx-auto min-h-screen scroll-smooth'>
+			<Header/>
+		</div>
+	)
 }

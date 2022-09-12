@@ -14,3 +14,12 @@ export interface IConversion{
 	updated: string
 	ms: number
 }
+
+export interface INav{
+	title: string
+	icon: string
+}
+
+export interface IdivEL {
+	current: HTMLDivElement | null;
+ }

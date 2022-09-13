@@ -6,7 +6,7 @@ export default function NavButton(props:any) {
 	let [toggle, setToggle] = useState(defaulte)
 	const handleClick = () => {
 		click(title)
-		console.log(title);
+		// console.log(title);
 		
 	}; 
 	useEffect(() => {

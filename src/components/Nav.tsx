@@ -18,17 +18,23 @@ export default function Currency() {
 	let dynamicNav = useClass('translate-y-[300%]', 'translate-y-[0%]') 
 
 
-	// let location = useLocation()
-	// let pageNow = location.pathname.slice(1).split('/')[0] 
-	const activePageTemplate:string[] = ['House', 'Operations', 'Statistics', 'Purposes'] 
-	// let arr = Array(activePageTemplate.length).fill(false)
+	let location = useLocation()
+	let pageNow = location.pathname.slice(1).split('/')[0] 
+	const activePageTemplate:string[] = ['Home', 'Operations', 'Statistics', 'Purposes'] 
+	let arr = Array(activePageTemplate.length).fill(false)
+	
+	arr[activePageTemplate.indexOf(
+		pageNow === ''
+			? 'Home' 
+			: activePageTemplate[activePageTemplate.indexOf(pageNow[0].toUpperCase() + pageNow.slice(1))]
+		)] = true
 
-	let [activePage, setActivePage] = useState([false, false, false, false])
+	let [activePage, setActivePage] = useState(arr)
 
 	const click = (title:string) => {
 		if (title) {
 			let page = [...activePage]
-			while (page.indexOf(true)) page[page.indexOf(true)] = false
+			while (page.includes(true)) page[page.indexOf(true)] = false		
 			page[activePageTemplate.indexOf(title)] = true
 			setActivePage(page)
 		}
@@ -39,7 +45,7 @@ return (
 		<div ref={navRef} className='relative px-8 py-5 flex justify-between bg-white rounded-t-3xl'> 
 			<div className=' flex justify-between w-4/12'>
 				<Link to='/'>
-					<NavButton title="House" defaulte={activePage[0]} click={(e:string) => {click(e)}}>
+					<NavButton title="Home" defaulte={activePage[0]} click={(e:string) => {click(e)}}>
 						<IconHouse/>
 					</NavButton>
 				</Link>

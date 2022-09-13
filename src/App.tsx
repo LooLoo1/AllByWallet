@@ -6,7 +6,6 @@ import Nav from './components/Nav'
 export const App = () => {
 	return (
 		<div className='bg-gray w-[428px] mx-auto min-h-screen scroll-smooth relative'>
-			<Router>
 			<Nav/>
 				<Routes>
 					<Route path='/' element={<Header/>}/>
@@ -34,7 +33,6 @@ export const App = () => {
 					<Route path='/login' element={<div/>}/>
 					<Route path='*' element={<div>Lol</div>}/>
 				</Routes>
-			</Router>
 		</div>
 	)
 }

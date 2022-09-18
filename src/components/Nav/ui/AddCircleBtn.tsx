@@ -1,15 +1,10 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
-import { IconAdd } from './Icons/Icons'
-import { useClass } from './Hooks/useClass'
+import { IconAdd } from '../../Icons/Icons'
+import { useClass } from '../../Hooks/useClass'
 
-
- export function AddCircleBtn(props:any) {
-
-		let { click } = props
-
-		//Add Btn effect
-		let [addBTN, setAddBTN] = useState(false)
+export default function AddCircleBtn({ click }:any) {
+		const [addBTN, setAddBTN] = useState(false)
 
 		const timeVait = 15000
 		const timeDelate = 2000
@@ -52,6 +47,6 @@ import { useClass } from './Hooks/useClass'
 				<IconAdd color='#fff' className='
 					w-[45%] h-[45%] transition-all 
 					group-hover:scale-110 group-hover:rotate-90'/>
-				</button>
+		</button>
 	)
  }

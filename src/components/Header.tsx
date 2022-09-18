@@ -14,5 +14,3 @@ export default function Header() {
 	 </header>
   )
 }
-
-// max-h-[100px]

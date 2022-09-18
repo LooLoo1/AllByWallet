@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-export default function CurrencyItem(data:any) {
- const {code, value} = data.data
+export default function CurrencyItem(prop:any) {
+ const {code, value} = prop.data
  
   return (
 	<p data-number={code} className='relative font-normal text-lg px-5

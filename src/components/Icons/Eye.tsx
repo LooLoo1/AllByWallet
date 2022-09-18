@@ -1,7 +1,6 @@
 import * as React from 'react'
 
- export function Eye(props:any) {
-	let {color = 'black', className} = props
+ export function Eye({color = 'black', className}:any) {
 	
 	return (
 		<div className={className}>

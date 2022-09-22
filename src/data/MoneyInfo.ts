@@ -1,4 +1,4 @@
-import {IBalance, IConversion} from '../models'
+import {IBalance, IConversion, СurrencyNowType} from '../interfaces'
 
 export const cards:IBalance[] = [
 	{
@@ -185,7 +185,7 @@ export const currency:IConversion = {
 
 
  //Only Test - I think about style the oject im future
- export const currencyNow = [{
+ export const currencyNow:СurrencyNowType[] = [{
 	code: 'EUR',
 	value: 29.95,
 	simboll: "€"
@@ -199,7 +199,7 @@ export const currency:IConversion = {
 	simboll: "€"
  }]
 
- export const currencyNow2 = [{
+ export const currencyNow2:СurrencyNowType[] = [{
 	code: 'EUR',
 	value: 29.95,
 	simboll: "€"

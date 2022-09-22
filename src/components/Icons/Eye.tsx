@@ -1,6 +1,11 @@
 import * as React from 'react'
 
- export function Eye({color = 'black', className}:any) {
+type TypeIcons = {
+	color?: string
+	className?: string
+}
+
+ export const Eye = ({color = 'black', className}:TypeIcons) => {
 	
 	return (
 		<div className={className}>

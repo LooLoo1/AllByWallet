@@ -20,6 +20,9 @@ module.exports = {
 				'gray':'#F3EDED',
 				'gray-20':'#C2BEBE',
 		 	},
+			transitionTimingFunction: {
+				'in-over': 'cubic-bezier(.5, 1.75, .75, 1.25)',
+			},	 
 			backgroundImage: {
 				'eye-ua': `radial-gradient(4.5% 3.5% at 45% 45%, #FFFFFF 0%, #FFFFFF 100%, rgba(255, 255, 255, 0) 100%), 
 						 radial-gradient(50% 50% at 50% 50%, #000000 25%, rgba(0, 0, 0, 0) 25%, 
@@ -41,6 +44,7 @@ module.exports = {
 		function ({ addVariant }) {
 			addVariant('child', '& > *');
 			addVariant('child-hover', '& > *:hover');
+			// addVariant('NavLink', '.active > &* *');
 	  }
 	],
 }

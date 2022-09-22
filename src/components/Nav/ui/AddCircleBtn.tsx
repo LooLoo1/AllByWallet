@@ -1,13 +1,23 @@
 import * as React from 'react'
+
 import { useState, useEffect } from 'react'
 import { IconAdd } from '../../Icons/Icons'
-import { useClass } from '../../Hooks/useClass'
+import { useClass } from '../../../Hooks/useClass'
 
-export default function AddCircleBtn({ click }:any) {
-		const [addBTN, setAddBTN] = useState(false)
+// type Props = { 
+// 	click: (event: MouseEvent<HTMLButtonElement, MouseEvent>) => void
+// 	children?: React.ReactNode
+// }
 
+export const AddCircleBtn = () => {
 		const timeVait = 15000
 		const timeDelate = 2000
+		const dynamicAddCircle = useClass('top-1/2 before:blur-none', 'top-0 before:blur-lg') 
+		const [addBTN, setAddBTN] = useState(false)
+
+		const onHover = () => {setAddBTN(true)} 
+		const onLeave  = () => {setAddBTN(false)} 
+
 		useEffect(() => {
 			const create = setInterval(() => {setAddBTN(true)}, timeVait);
 			const delite = setInterval(() => {setAddBTN(false)}, timeVait + timeDelate);
@@ -18,11 +28,6 @@ export default function AddCircleBtn({ click }:any) {
 			}
 		}, []);
 	
-		const onHover = () => {setAddBTN(true)} 
-		const onLeave  = () => {setAddBTN(false)} 
-	
-		let dynamicAddCircle = useClass('top-1/2 before:blur-none', 'top-0 before:blur-lg') 
-
 	return (
 		<button className={`
 					group
@@ -43,7 +48,7 @@ export default function AddCircleBtn({ click }:any) {
 						: 'shadow-none'
 					}
 			`}
-			onMouseOver={onHover} onMouseOut={onLeave} onClick={click}>
+			onMouseOver={onHover} onMouseOut={onLeave} >
 				<IconAdd color='#fff' className='
 					w-[45%] h-[45%] transition-all 
 					group-hover:scale-110 group-hover:rotate-90'/>

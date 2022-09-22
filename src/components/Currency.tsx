@@ -1,16 +1,16 @@
 import * as React from 'react'
-import CurrencyItem from './CurrencyItem'
-import {IBalance, ICurrency} from '../models'
+import { CurrencyItem } from './CurrencyItem'
+import {IBalance, ICurrency} from '../interfaces'
 import { currencyNow, currencyNow2 } from '../data/MoneyInfo'
 
-// currencyNow, currencyNow2!!!!!!!!!!!!!!!!!!!!!!!!!
+// currencyNow, currencyNow2 it is 2 static templates
 
 interface BalanceProps{
 	balance: IBalance
 }
 
-export default function Currency() {
-	let align = (currencyNow.length <= 3)? 'justify-center': 'justify-start'
+export const Currency = () => {
+	const align = (currencyNow.length <= 3)? 'justify-center': 'justify-start'
 
   return (
 	 <div className='flex flex-col flex-center flex-[0_0_100%] w-full h-full self-center py-5 snap-center'>

@@ -1,4 +1,4 @@
-import {INav} from '../models'
+import {INav} from '../interfaces'
 
 
 export const navInfo:INav[] = [

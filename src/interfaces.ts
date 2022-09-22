@@ -1,3 +1,6 @@
+import {useRef} from 'react'
+
+
 export interface IBalance{
 	title: string
 	values: ICurrency[]
@@ -22,4 +25,14 @@ export interface INav{
 
 export interface IdivEL {
 	current: HTMLDivElement | null;
+ }
+
+ export interface IbuttonEL {
+	// current: UseRed<HTMLButtonElement>
+ }
+
+ export interface СurrencyNowType {
+	code: string
+	value: number
+	simboll?: string
  }

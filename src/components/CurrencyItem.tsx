@@ -1,7 +1,14 @@
 import * as React from 'react'
 
-export default function CurrencyItem(prop:any) {
- const {code, value} = prop.data
+type CurrencyItem = {
+	data: {
+		code: string
+		value: number
+	}
+}
+
+export const CurrencyItem = ({data}:CurrencyItem) => {
+ const {code, value} = data
  
   return (
 	<p data-number={code} className='relative font-normal text-lg px-5

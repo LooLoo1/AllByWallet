@@ -1,6 +1,6 @@
-import { useState} from 'react'
+import { useState } from 'react'
 
-export function useClass(hideClass:string, showClass:string ) {
+export const useClass = (hideClass:string, showClass:string ) => {
 	const [state, setState] = useState(hideClass) 
 	setTimeout(() => {
 		setState(showClass)

@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-type CurrencyItem = {
+type TCurrencyItem = {
 	data: {
 		code: string
 		value: number
 	}
 }
 
-export const CurrencyItem = ({data}:CurrencyItem) => {
+export const CurrencyItem = ({data}:TCurrencyItem) => {
  const {code, value} = data
  
   return (

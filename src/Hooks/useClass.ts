@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 export const useClass = (hideClass:string, showClass:string ) => {
-	const [state, setState] = useState(hideClass) 
+	const [state, setState] = useState(hideClass)
 	setTimeout(() => {
 		setState(showClass)
   }, 0)

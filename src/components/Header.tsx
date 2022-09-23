@@ -7,10 +7,10 @@ import { IBalance } from '../interfaces'
 export const Header = () => {
   return (
 	 <header className='snap-mandatory snap-x flex flex-row flex-nowrap text-center overflow-x-scroll overflow-y-hidden bg-white rounded-3xl'>
-		{cards.map((el:IBalance, i:number) => {
-			return <Balance balance={cards[i]} key={cards[i].title}/> 
+		{cards.map((el:IBalance) => {
+			return <Balance balance={el} key={el.title}/> 
 		})}
 		<Currency/>
 	 </header>
   )
-}
+} 

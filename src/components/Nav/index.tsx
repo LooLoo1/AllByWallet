@@ -35,6 +35,7 @@ export const Nav = ({type = 'main'}:NavType) => {
 								'z-[-1]'])
 		}
 	}	
+	
 	useEffect(() => {
 		typeStylesE()
 	}, [type])

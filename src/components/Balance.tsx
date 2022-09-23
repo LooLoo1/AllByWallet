@@ -9,10 +9,10 @@ export const Balance = ({balance}: BalanceProps) => {
 	const values = balance.values
 
 	const currencyGenerate = (values:ICurrency[]) => {
-		if (values.length == 1) {
+		if (values.length === 1) {
 			return <span className='mx-auto'>{values[0].amount}{values[0].currency}</span>
 		}
-		let circle = <span className='block w-[5px] h-[5px] bg-black rounded-full my-auto mx-5'></span>
+		const circle = <span className='block w-[5px] h-[5px] bg-black rounded-full my-auto mx-5'></span>
 		
 		return values.map((obj:ICurrency, i:number) => {	
 			let tempalte:string = obj['amount'] + obj['currency'];

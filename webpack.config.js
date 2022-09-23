@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const RobotstxtPlugin = require("robotstxt-webpack-plugin");
 
 module.exports = {
     mode: 'development',
@@ -21,6 +20,15 @@ module.exports = {
    //    contentBase: path.join(__dirname, "/dist"),
    //    historyApiFallback:true
    //  },
+	 devServer: {
+		historyApiFallback: true,
+		static: {
+		  directory: path.join(__dirname, 'public'),
+		},
+		compress: true,
+		port: 9000,
+	 },
+
     module: {
         rules: [
             {
@@ -58,6 +66,7 @@ module.exports = {
             template: './public/index.html',
             // favicon: './public/icon.png'
         }),
+		  
       //   new RobotstxtPlugin({
       //       filePath: "./robots.txt"
       //   }),

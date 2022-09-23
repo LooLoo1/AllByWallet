@@ -6,12 +6,17 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
   scrollbar-width: none; /* for Firefox */
 }
 
 ::-webkit-scrollbar {
   width: 0;
   display: none;
+}
+
+body{
+	@apply bg-gray-20;
 }
 
 h1 {

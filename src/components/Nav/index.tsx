@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useState, useEffect, useRef} from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { useClass } from '../../Hooks/useClass'
+import { useClass } from '../../hooks/useClass'
 import { IconHouse, IconOperations, IconStatistics, IconPurposes, IconSetting } from '../Icons/Icons'
 import { Eye } from '../Icons/Eye'
 import { AddCircleBtn, NavButton } from './ui'

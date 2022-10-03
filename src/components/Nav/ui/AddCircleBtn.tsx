@@ -2,12 +2,7 @@ import * as React from 'react'
 
 import { useState, useEffect } from 'react'
 import { IconAdd } from '../../Icons/Icons'
-import { useClass } from '../../../Hooks/useClass'
-
-// type Props = { 
-// 	click: (event: MouseEvent<HTMLButtonElement, MouseEvent>) => void
-// 	children?: React.ReactNode
-// }
+import { useClass } from '../../../hooks/useClass'
 
 export const AddCircleBtn = () => {
 		const timeVait = 15000

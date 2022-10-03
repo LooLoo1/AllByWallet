@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     mode: 'development',
@@ -28,13 +29,12 @@ module.exports = {
 		compress: true,
 		port: 9000,
 	 },
-
     module: {
         rules: [
             {
                 test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
+                loader: 'babel-loader',
+                exclude: /node_modules/
             },
             {
                 test: /\.tsx?$/,
@@ -66,7 +66,7 @@ module.exports = {
             template: './public/index.html',
             // favicon: './public/icon.png'
         }),
-		  
+		  new Dotenv(),
       //   new RobotstxtPlugin({
       //       filePath: "./robots.txt"
       //   }),

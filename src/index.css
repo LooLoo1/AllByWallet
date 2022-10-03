@@ -1,6 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* 
+https://stackoverflow.com/questions/61508409/how-to-change-tailwind-config-js-dynamically-based-on-user-settings-in-rails */
+@layer base {
+  :root {
+	--them-color-background: 243 237 237;
+	--them-color-text: 0 0 0;
+	--them-color-blocks-background: 255 255 255;
+	--them-color-blocks-shodow: 255 255 255;
+	--them-color-transactions-income: 0 255 0;
+	--them-color-transactions-costs: 255 0 0;
+	--them-color-income-1: 0 0 255;
+	--them-color-income-2: 0 133 255;
+	--them-color-income-3: 98 246 255;
+	--them-color-income-4: 255 255 255;
+	--them-color-income-5: ;
+	--them-color-income-6: ;
+	--them-color-income-7: ;
+	--them-color-income-8: ;
+	--them-color-costs-1: 255 0 0;
+	--them-color-costs-2: 255 153 0;
+	--them-color-costs-3: 255 255 0;
+	--them-color-costs-4: 255 255 255;
+	--them-color-costs-5: ;
+	--them-color-costs-6: ;
+	--them-color-costs-7: ;
+	--them-color-costs-8: ;
+  }
+}
 
 *,
 *:before,
@@ -20,8 +48,23 @@ body{
 }
 
 h1 {
-  @apply text-4xl;
+	@apply text-4xl;
+}
+h1.h0{
+	@apply text-5xl
 }
 h2 {
-  @apply text-[32px];
+	@apply text-[32px];
+}
+h3 {
+	@apply text-[28px];
+}
+h4 {
+	@apply text-2xl;
+}
+button{
+	@apply text-xl;
+}
+p{
+	@apply text-base;
 }

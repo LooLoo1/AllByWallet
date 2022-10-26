@@ -19,7 +19,7 @@ export const NavButton = ({children, title, defaulte, disabled = false}:NavButto
 		setToggle(navLink.current!.parentElement!.classList.contains('active'))
 	}else{setToggle(false)}
   },
-   [location]
+  [location]
   )
 	
    return (

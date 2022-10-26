@@ -22,7 +22,7 @@
 		"react/react-in-jsx-scope": "off",
         "camelcase": "error",
         "spaced-comment": "error",
-        "quotes": ["error", "prefer-single"],
+        "quotes": ["error", "single"],
         "jsx-quotes": ["error", "prefer-single"],
         "no-duplicate-imports": "error",
 		  "prefer-const": "error",

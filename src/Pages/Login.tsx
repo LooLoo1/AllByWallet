@@ -5,6 +5,7 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase";
 import { userSlice } from '../store/reducers/UserSlice';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
+import { fetchUserData } from '../store/reducers/ActionCreators'
 
 // import { IconGoogle } from '../Icons/Icons'
 
@@ -21,9 +22,10 @@ export const Login = () => {
 		signInWithPopup(auth, provider).then((result) => {
 			const user = result.user
 			if (user.uid === process.env.WHITE_LIST_ID) {
-				const {displayName, email, uid} = user
+				const {displayName, email, uid}:any = user
 				dispatch(setUser({displayName, email, uid}))
 				navigate('/')
+		  		dispatch(fetchUserData({displayName, email, uid}))
 			}
 		}).catch(() => {setErrorMessage('Error, try again...')}) 
 	}

@@ -45,12 +45,12 @@ export const Nav = ({type = 'main'}:NavType) => {
 				<div ref={navRef} className='relative px-8 py-5 bg-white rounded-t-3xl'> 
 					<div className={`flex justify-between ${typeStyles[0]}`}>
 						<div className='flex justify-between w-4/12'>
-							<NavLink className={(e) => e.isActive ? "active" : "" } to='/'>
+							<NavLink className={(e) => e.isActive ? "active" : " " } to='/home'>
 								<NavButton title="Home" >
 									<IconHouse/>
 								</NavButton>
 							</NavLink>
-							<NavLink className={(e) => e.isActive ? "active" : "" } to='/operations'>
+							<NavLink className={(e) => e.isActive ? "active" : " " } to='/operations'>
 								<NavButton title="Operations" >
 									<IconOperations/>
 								</NavButton>
@@ -63,14 +63,14 @@ export const Nav = ({type = 'main'}:NavType) => {
 						</Link>
 
 						<div className='flex justify-between w-4/12'>
-							<NavLink className={`${(e:any) => e.isActive ? "active" : "" } pointer-events-none`} to='/statistics'>
-								<NavButton title="Statistics" disabled={true} >
+							<NavLink className={`${(e:any) => e.isActive ? "active" : " " }`} to='/statistics'>
+								<NavButton title="Statistics" >
 									<IconStatistics/>
 								</NavButton>
 							</NavLink>
 
-							<NavLink className={`${(e:any) => e.isActive ? "active" : "" } pointer-events-none`} to='/purposes'>
-								<NavButton title="Purposes" disabled={true} >
+							<NavLink className={`${(e:any) => e.isActive ? "active" : " " }`} to='/purposes'>
+								<NavButton title="Purposes" >
 									<IconPurposes/>
 								</NavButton>
 							</NavLink>

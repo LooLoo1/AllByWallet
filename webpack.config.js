@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const CheerioWebpackPlugin = require('cheerio-webpack-plugin');
+
 
 module.exports = {
     mode: 'development',
@@ -12,6 +14,7 @@ module.exports = {
         publicPath: '',
 		  clean: true
     },
+	 
    //  devServer: {
    //      static: './dist',
    //      port: 8080,
@@ -70,6 +73,12 @@ module.exports = {
       //   new RobotstxtPlugin({
       //       filePath: "./robots.txt"
       //   }),
+		new CheerioWebpackPlugin({
+			test: /.html$/,
+			callback: function ($) {
+			  $('link').remove()
+			}
+		 })
     ],
 
 	 

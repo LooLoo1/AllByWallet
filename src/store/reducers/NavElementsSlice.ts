@@ -19,9 +19,6 @@ export const navElementsSlice = createSlice({
 		// inc(state, action: PayloadAction<number>) {
 		// 	state.count += action.payload
 		//  },
-		inc(state, action: PayloadAction<number>) {
-			// state.count += action.payload
-		 },
 	}
 })
 

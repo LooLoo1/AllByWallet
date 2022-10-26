@@ -1,9 +1,16 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import userReducer from './reducers/UserSlice'
 import navReducer from './reducers/NavElementsSlice'
+import currencyReducer from './reducers/CurrencySlice'
+import settingsReducer from './reducers/SettingsSlice'
+import walletsListReducer from './reducers/WalletsListSlice'
 
 const rootReducer = combineReducers({
-	userReducer, navReducer
+	userReducer, 
+	navReducer, 
+	currencyReducer,
+	settingsReducer,
+	walletsListReducer
 })
 
 export const setupStore = () => {

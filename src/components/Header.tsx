@@ -10,13 +10,11 @@ export const Header = () => {
 	const {currency, isLoading, error} = useAppSelector(state => state.currencyReducer)
 	error && console.log(error)
 	
-	const {list = {}} = useAppSelector(state => state.walletsListReducer)
+	const {list = {}, listOfNames = []} = useAppSelector(state => state.walletsListReducer)
 	const listOfKeys = Object.keys(list)
 	
 	useEffect(() => {
-		if (!currency) {
-			dispatch(fetchCurrency())
-		}
+		dispatch(fetchCurrency())
 	}, [])
 
   return (
@@ -28,7 +26,7 @@ export const Header = () => {
 				{listOfKeys.reverse().map((el) => {
 					return <Balance data={list[el]} key={el}/> 
 				})}
-				<Currency/>
+				{listOfNames.length > 1 && <Currency/>}
 			</>
 		}
 	 </header>

@@ -1,15 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { UserState } from '../types'
-import { useAppDispatch } from '../../../hooks/redux';
-// import { settingsSlice } from '../../../store/reducers/SettingsSlice';
 
 import { db } from '../../../firebase';
 import { doc, setDoc, collection, addDoc, getDocs, updateDoc, arrayUnion} from "firebase/firestore"; 
-
-// const {setSettings} = settingsSlice.actions
-// const dispatch = useAppDispatch()
-
+import { fetchUserData } from '../ActionCreators';
 
 const localStore = localStorage.getItem('user')
 const userStore = (typeof localStore === 'string')? JSON.parse(localStore) : null
@@ -88,30 +83,24 @@ export const userSlice = createSlice({
 				})()
 			}
 		},
-
-		userDataFetching(state){
-			state.isLoading = true
-		},
-		userDataFetchingSuccess(state, action){
-			state.isLoading = false
-			state.error = ''
-			// console.log(action);
-			// dispatch(setSettings(action.payload))
-			// currencyFindFrech
-		},
-		userDataFetchingError(state, action: PayloadAction<string>){
-			state.isLoading = false
-			state.error = action.payload
-		},
-
 		singOut(state){
 			localStorage.setItem('user', JSON.stringify(null))
 			state.currentUser = null
 		},
-		// currencyFetchinh(state){
-			
-		// }
 
+	},
+	extraReducers: {
+		[fetchUserData.pending.type]: (state) => {
+			state.isLoading = true
+		},
+		[fetchUserData.fulfilled.type]: (state, action) => {
+			state.isLoading = false
+			state.error = ''
+		},
+		[fetchUserData.rejected.type]: (state, action) => {
+			state.isLoading = false
+			state.error = action.payload
+		}
 	}
 })
 

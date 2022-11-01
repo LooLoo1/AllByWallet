@@ -1,20 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { WalletsListState, TCurrency } from '../types'
 
+const localStore = localStorage.getItem('walletsList')
+const settingsStore = (typeof localStore === 'string')? JSON.parse(localStore) : null
+
+
 const initialState: WalletsListState = {
 	//Template
-	list: {
+	list: settingsStore || {
 		'#id': {
-			'currency': [ 'EUR',  'PLN', 'USD'],
+			'currency': ['USD', 'EGP'],
 			'type': 'Wallet',
 			'name': 'TestWallet2',
-			'values': [ 200, 500, 20 ]
-	  },
-	  '#id2': {
-			'currency': [ 'JPY', 'UAH' ],
-			'type': 'Wallet',
-			'values': [ 20, 50 ],
-			'name': 'TestWallet'
+			'values': [20, 10 ]
 	  }
 	}
 }
@@ -26,8 +24,8 @@ export const walletsListSlice = createSlice({
 	reducers: {
 		setWalletsList(state, action){
 			state.list = action.payload
-			console.log(action.payload);
-			
+			localStorage.setItem('walletsList', JSON.stringify({...action.payload}))
+			// console.log(action.payload);
 		},
 		resetListOfCurrencyNames(state, action){
 			const keys = Object.keys(state.list!)

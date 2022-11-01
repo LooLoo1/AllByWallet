@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { currencyData, currencyState } from '../types'
+import { fetchCurrency } from '../ActionCreators'
 
 const initialState:currencyState = {
 	currency: null,
@@ -12,37 +13,22 @@ const initialState:currencyState = {
 export const currencySlice = createSlice({
 	name: 'currency',
 	initialState,
-	reducers: {
-		currencyFetching(state){
+	reducers: {},
+	extraReducers: {
+		[fetchCurrency.pending.type]: (state) => {
 			state.isLoading = true
 		},
-		currencyFetchingSuccess(state, action){
-			state.isLoading = false
-			state.error = ''
-			state.currencyAll = action.payload
-
-			// currencyFindFrech
-			state.currency = state.currencyAll[state.currencyAll.length - 1]
-			localStorage.setItem('currency', JSON.stringify(state.currencyAll[state.currencyAll.length - 1]))
-
-		},
-		currencyFetchingError(state, action: PayloadAction<string>){
-			state.isLoading = false
-			state.error = action.payload
-		},
-
-		currencyFetchingStorageSuccess(state, action){
+		[fetchCurrency.fulfilled.type]: (state, action) => {
 			state.isLoading = false
 			state.error = ''
 			state.currency = action.payload
-		},
+			if (action.payload.data && action.payload.id) {
+				localStorage.setItem('currency', JSON.stringify(action.payload))
+			}
 
-		currencyFetchingAPISuccess(state, action:PayloadAction<currencyData>){
-			state.currency = action.payload
-			localStorage.setItem('currency', JSON.stringify(action.payload))
-			state.currencyAll = [...state.currencyAll, action.payload]
 		},
-		currencyFetchingAPIError(state, action){
+		[fetchCurrency.rejected.type]: (state, action) => {
+			state.isLoading = false
 			state.error = action.payload
 		}
 	}

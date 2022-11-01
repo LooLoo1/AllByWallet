@@ -9,9 +9,8 @@ import { fetchUserData } from '../store/reducers/ActionCreators'
 
 // import { IconGoogle } from '../Icons/Icons'
 
-export const Login = () => {
-	// const {currentUser} = useAppSelector(state => state.userReducer)
-	
+
+export const Login = () => {	
 	const {setUser} = userSlice.actions
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
@@ -21,12 +20,12 @@ export const Login = () => {
 		const provider = new GoogleAuthProvider();
 		signInWithPopup(auth, provider).then((result) => {
 			const user = result.user
-			if (user.uid === process.env.WHITE_LIST_ID) {
+			// if (user.uid === process.env.WHITE_LIST_ID) {
 				const {displayName, email, uid}:any = user
 				dispatch(setUser({displayName, email, uid}))
 				navigate('/')
 		  		dispatch(fetchUserData({displayName, email, uid}))
-			}
+			// }
 		}).catch(() => {setErrorMessage('Error, try again...')}) 
 	}
 
@@ -44,6 +43,3 @@ export const Login = () => {
 	 </div>
   )
 } 
-
-// 25 30
-// py-6 px-8

@@ -45,7 +45,7 @@ export const Balance = ({data}: props) => {
 		// currencyResult = new Intl.NumberFormat('en-US', { style: 'currency', currency: baseCurrency }).format(currencyResult)
 		// currencyResult = new Intl.NumberFormat(navigator.language, { style: 'currency', currency: baseCurrency }).format(currencyResult)
 		currencyResult = `${new Intl.NumberFormat(navigator.language, { style: 'decimal', maximumFractionDigits: 2 }).format(currencyResult)} ${Curencies[showCurrency].symbol}`
-		template = <span className='mx-auto'>{currencyResult}</span>
+		template = <span className='mx-auto'>{currencyResult}</span> 
 	}
 
 	const changeCyrrency = () => {

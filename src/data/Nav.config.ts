@@ -1,5 +1,8 @@
-import {INav} from '../interfaces'
 
+type INav = {
+		title: string
+		icon: string
+	}
 
 export const navInfo:INav[] = [
 	{

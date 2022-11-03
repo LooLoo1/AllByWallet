@@ -12,14 +12,14 @@ type NavButton = {
 export const NavButton = ({children, title, defaulte, disabled = false}:NavButton) => {
 	const [toggle, setToggle] = useState(defaulte)
 	const navLink = useRef<HTMLButtonElement>(null)
-	let location = useLocation()
+	const location = useLocation()
 
   useEffect(() => {
 	if(navLink.current && !toggle) {
 		setToggle(navLink.current!.parentElement!.classList.contains('active'))
 	}else{setToggle(false)}
   },
-   [location]
+  [location]
   )
 	
    return (

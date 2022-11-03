@@ -1,11 +1,13 @@
 import * as React from 'react'
 import { useEffect } from 'react'
+
 import { Balance } from './Balance'
 import { Currency } from './Currency'
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
 import { fetchCurrency } from '../store/reducers/ActionCreators'
 
 export const Header = () => {
+	
 	const dispatch = useAppDispatch()
 	const {currency, isLoading, error} = useAppSelector(state => state.currencyReducer)
 	error && console.log(error)

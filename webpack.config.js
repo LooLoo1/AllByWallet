@@ -1,8 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const CheerioWebpackPlugin = require('cheerio-webpack-plugin');
-
 
 module.exports = {
     mode: 'development',
@@ -11,7 +9,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, '/dist'),
         filename: 'bundle.js',
-        publicPath: '',
+        publicPath: '/',
 		  clean: true
     },
 	 
@@ -70,15 +68,6 @@ module.exports = {
             // favicon: './public/icon.png'
         }),
 		  new Dotenv(),
-      //   new RobotstxtPlugin({
-      //       filePath: "./robots.txt"
-      //   }),
-		new CheerioWebpackPlugin({
-			test: /.html$/,
-			callback: function ($) {
-			  $('link').remove()
-			}
-		 })
     ],
 
 	 

@@ -96,7 +96,7 @@ export type currencyObject = {
 
 export type currencyData = {
 	id: string
-	data: currencyObject
+	data: currencyObject 
 } | null
 
 export type currencyState = {

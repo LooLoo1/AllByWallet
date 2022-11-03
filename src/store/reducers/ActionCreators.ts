@@ -1,13 +1,12 @@
-import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { doc, getDoc, setDoc } from "firebase/firestore"; 
+import { doc, getDoc, setDoc, query, limitToLast, orderBy, collection, getDocs } from "firebase/firestore"; 
 import { db } from '../../firebase';
 import { settingsSlice } from '../../store/reducers/SettingsSlice';
 import { walletsListSlice } from '../../store/reducers/WalletsListSlice';
-import { ReserveCurrency } from "../../shered/api/ReserveCurrency";
-import { options } from "../../shered/api/CurrencyAPI";
+import { ReserveCurrency } from "../../shared/api/ReserveCurrency";
+import { requestAPI } from "../../shared/api/CurrencyAPI";
 
-import type { CurentUser, currencyObject} from './types'
+import type { CurentUser} from './types'
 
 
 const settings = {
@@ -91,32 +90,50 @@ export const fetchCurrency = createAsyncThunk(
 			}
 		}
 
+		// Old ======================================= 
 		// Get from FireBase
 		// const docRef = doc(db, "currency", '2022-10-30');
-		const docRef = doc(db, "currency", new Date().toISOString().split('T')[0]);
-		const docSnap = await getDoc(docRef);
-		const data = await docSnap.data()
-		if (data) {
-			return {id:docSnap.id, data}
+
+		// const docRef = doc(db, "currency", new Date().toISOString().split('T')[0]);
+		// const docSnap = await getDoc(docRef);
+		// const data = await docSnap.data()
+		// if (data) {
+		// 	return {id:docSnap.id, data}
+		// }
+		// =======================================
+
+		// Get last from FireBase
+		const citiesRef = collection(db, "currency")
+		const q = query(citiesRef, orderBy("updated"), limitToLast(1))
+		const querySnapshot = await getDocs(q)
+		let lastCurrencyFB 
+		querySnapshot.forEach((doc) => {
+			lastCurrencyFB = {id: doc.id, data: doc.data()}
+		})
+
+		// Set last from FireBase if it was updated today 
+		if(lastCurrencyFB){
+			if(lastCurrencyFB!.data.updated.split(' ')[0] == new Date().toISOString().split('T')[0]){
+				return lastCurrencyFB
+			}
 		}
 
-		// Get from CurrencyAPI
-		axios.request(options).then(function (response) {
-			const {rates:results, updated, base} = response.data
-			const dateFormat = new Date().toISOString()
-			const data:currencyObject = {
-				results, 
-				updated: [dateFormat.split("T")[0], dateFormat.split("T")[1].split(".")[0]].join(' '), 
-				base: "USD"
+		// Get from localStorage and work only with admin uid
+		const localStoreUser = localStorage.getItem('user')
+		const currencyStoreUser = (typeof localStoreUser === 'string')? await JSON.parse(localStoreUser) : null
+		if (currencyStoreUser.uid === process.env.WHITE_LIST_ID) {
+			// Get from CurrencyAPI
+			const currency = requestAPI()
+			if(currency){
+				return currency
 			}
-			setDoc(doc(db, "currency", data.updated.split(' ')[0]), data, { merge: true });
-
-			return {
-				data,
-				id: data.updated.split(" ")[0]
-			}
-		 })
-
+		}
+		
+		// Set last from FireBase
+		if(lastCurrencyFB){
+			return lastCurrencyFB
+		}
+		
 		// Get from Template
 		return ReserveCurrency
 

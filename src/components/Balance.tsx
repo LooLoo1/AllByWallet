@@ -1,8 +1,9 @@
 import * as React from 'react' 
 import { useState, useEffect }from 'react' 
+
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
-import { Converter } from "../shered/lib/Converter"
-import { Curencies } from "../shered/lib/Curencies"
+import { Converter } from "../shared/lib/Converter"
+import { Curencies } from "../shared/lib/Curencies"
 import { walletsListSlice } from '../store/reducers/WalletsListSlice'
 
 import type { TWallet } from "../store/reducers/types"
@@ -12,15 +13,16 @@ type props = {
 } 
 
 export const Balance = ({data}: props) => {
-
 	const dispatch = useAppDispatch()
 	const {resetListOfCurrencyNames, resetListOfCurrencyValues} = walletsListSlice.actions
 	const {currency} = useAppSelector(state => state.currencyReducer)
 	const {baseCurrency} = useAppSelector(state => state.settingsReducer)
+	
 	const {list, listOfNames = [], listOfValues = []} = useAppSelector(state => state.walletsListReducer)
-	const align = (data && data.values.length >= 3)? 'justify-start' : 'justify-center'  
-	let [showCurrency, setShowCurrency] = useState(baseCurrency)
+	const [showCurrency, setShowCurrency] = useState(baseCurrency)
+
 	const showCurrencyList = Array.from(new Set([baseCurrency, ...listOfNames]))
+	const align = (data && data.values.length >= 3)? 'justify-start' : 'justify-center'  
 	let template
 
 	if (data) {
@@ -38,9 +40,9 @@ export const Balance = ({data}: props) => {
 		}
 
 	} else {
-		let currencyResult: number | string = listOfValues.reduce((acc:number, el:number, i:number) => {
-			return acc + Converter({from: listOfNames[i], to: showCurrency, value: listOfValues[i]}, currency)
-		},0) 
+		let currencyResult: number | string = listOfValues.reduce((acc:number, el:number, i:number) => 
+			acc + Converter({from: listOfNames[i], to: showCurrency, value: listOfValues[i]}, currency)
+		,0) 
 		// currencyResult = Number(currencyResult.toFixed(2))	+ baseCurrency
 		// currencyResult = new Intl.NumberFormat('en-US', { style: 'currency', currency: baseCurrency }).format(currencyResult)
 		// currencyResult = new Intl.NumberFormat(navigator.language, { style: 'currency', currency: baseCurrency }).format(currencyResult)

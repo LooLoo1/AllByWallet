@@ -1,19 +1,22 @@
 import * as React from 'react'
 import { useEffect } from 'react'
+
 import { CurrencyItem } from './CurrencyItem'
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
-import { ExchangeRate } from "../shered/lib/ExchangeRate";
+import { ExchangeRate } from "../shared/lib/ExchangeRate";
 import { walletsListSlice } from '../store/reducers/WalletsListSlice';
 
 
 export const Currency = () => {
+	const dispatch = useAppDispatch()
+
 	const {currency} = useAppSelector(state => state.currencyReducer)
 	const {baseCurrency} = useAppSelector(state => state.settingsReducer)
 	const {list, listOfNames = []} = useAppSelector(state => state.walletsListReducer)
+	const {resetListOfCurrencyNames} = walletsListSlice.actions
 
 	const align = (listOfNames.length < 5)? 'justify-center': 'justify-start'
-	const dispatch = useAppDispatch()
-	const {resetListOfCurrencyNames} = walletsListSlice.actions
+
 	useEffect(() => {
 		dispatch(resetListOfCurrencyNames(list))
 	},[list])

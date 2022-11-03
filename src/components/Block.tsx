@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-type Rounded = "All" | "Top" | "Bottom" | "Left" | "Right"
+type Rounded = "all" | "top" | "bottom" | "left" | "right"
 
 export const Block = () => {
   return (

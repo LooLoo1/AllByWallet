@@ -31,7 +31,7 @@ export const Currency = () => {
 				})}
 			</span>
 			<span className='text-xs opacity-50 text-center font-OpenS font-bold mx-auto mt-[1em] block'>{currency?.id.split('-').reverse().join('.')}</span>
-			<i className='px-4 px-6 px-8 px-10 px-12 px-14 px-0'></i>
+			{/* <i className='px-4 px-6 px-8 px-10 px-12 px-14 px-0'></i> */}
 		</div>
 	)
 }

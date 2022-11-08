@@ -8,9 +8,9 @@ import { fetchUserData } from '../store/reducers/ActionCreators'
 import { Header } from '../components/Header'
 import { Nav } from '../components/Nav'
 
-
 export const Body = () => {
 	const { currentUser } = useAppSelector(state => state.userReducer)
+
 	// const {settingsChange} = userSlice.actions
 	// const dispatch = useAppDispatch()
 	// useEffect(() => {
@@ -24,8 +24,10 @@ export const Body = () => {
   return (
 	 <div className='bg-gray w-[428px] mx-auto min-h-screen scroll-smooth relative'>
 			{ currentUser && <Header/>}
-			<Nav/>
+			
 			<Outlet/>
+			<Nav/>
+
 	 </div>
   )
 } 

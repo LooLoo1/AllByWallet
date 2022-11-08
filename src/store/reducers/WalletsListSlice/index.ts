@@ -9,7 +9,7 @@ const initialState: WalletsListState = {
 	//Template
 	list: settingsStore || {
 		'#id': {
-			'currency': ['USD', 'EGP'],
+			'currency': ['USD', 'PLN'],
 			'type': 'Wallet',
 			'name': 'TestWallet2',
 			'values': [20, 10 ]

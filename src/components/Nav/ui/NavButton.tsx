@@ -9,17 +9,20 @@ type NavButton = {
 	disabled?: boolean
 }
 
-export const NavButton = ({children, title, defaulte, disabled = false}:NavButton) => {
-	const [toggle, setToggle] = useState(defaulte)
+export const NavButton = ({children, title, disabled = false}:NavButton) => {
+	const [toggle, setToggle] = useState(false)
 	const navLink = useRef<HTMLButtonElement>(null)
 	const location = useLocation()
 
   useEffect(() => {
-	if(navLink.current && !toggle) {
-		setToggle(navLink.current!.parentElement!.classList.contains('active'))
-	}else{setToggle(false)}
-  },
-  [location]
+	//   console.log(title, "=> ",location.pathname.includes(title.toLocaleLowerCase()));
+	//   console.log(title, "=> ", navLink.current!.parentElement!.classList.contains('active'));
+	  if(navLink.current) {
+			setToggle(navLink.current!.parentElement!.classList.contains('active'))
+		}else{
+		 setToggle(false)
+		}
+	}, [location]
   )
 	
    return (

@@ -5,7 +5,7 @@ export const useClass = (hideClass:string, showClass:string ) => {
 	setTimeout(() => {
 		setState(showClass)
   }, 0)
-	return state
+	return state 
 }
 
 // Template: let dynamicNav = useClass('translate-y-[300%]', 'translate-y-[0%]') 

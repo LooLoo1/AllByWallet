@@ -32,7 +32,8 @@ export const Balance = ({data}: props) => {
 			template = values.map((_, i) => {
 				// const templateInfo:string = values[i] + currency[i]
 				// const templateInfo:string = new Intl.NumberFormat(navigator.language, { style: 'currency', currency: currency[i] }).format(values[i])
-				const templateInfo:string = `${new Intl.NumberFormat(navigator.language, { style: 'decimal', maximumFractionDigits: 2 }).format(values[i])} ${Curencies[currency[i]].symbol}`
+
+				const templateInfo = <><span>{new Intl.NumberFormat(navigator.language, { style: 'decimal', maximumFractionDigits: 2 }).format(values[i])}</span><span className='ml-2'>{Curencies[currency[i]].symbol}</span> </>
 				return (i < values.length - 1)
 						? <span className='snap-center scroll-ml-[45px] flex flex-row' key={values[i]}>{templateInfo}{circle}</span>
 						: <span className='snap-center' key={values[i]}>{templateInfo}</span>	
@@ -40,14 +41,15 @@ export const Balance = ({data}: props) => {
 		}
 
 	} else {
-		let currencyResult: number | string = listOfValues.reduce((acc:number, el:number, i:number) => 
+		const currencyResult: number | string  = listOfValues.reduce((acc:number, el:number, i:number) => 
 			acc + Converter({from: listOfNames[i], to: showCurrency, value: listOfValues[i]}, currency)
 		,0) 
 		// currencyResult = Number(currencyResult.toFixed(2))	+ baseCurrency
 		// currencyResult = new Intl.NumberFormat('en-US', { style: 'currency', currency: baseCurrency }).format(currencyResult)
 		// currencyResult = new Intl.NumberFormat(navigator.language, { style: 'currency', currency: baseCurrency }).format(currencyResult)
-		currencyResult = `${new Intl.NumberFormat(navigator.language, { style: 'decimal', maximumFractionDigits: 2 }).format(currencyResult)} ${Curencies[showCurrency].symbol}`
-		template = <span className='mx-auto'>{currencyResult}</span> 
+		const currencyResultElem = <><span>{new Intl.NumberFormat(navigator.language, { style: 'decimal', maximumFractionDigits: 2 }).format(currencyResult)}</span><span className='ml-2'>{Curencies[showCurrency].symbol}</span> </>
+		// currencyResult = `${new Intl.NumberFormat(navigator.language, { style: 'decimal', maximumFractionDigits: 2 }).format(currencyResult)} ${Curencies[showCurrency].symbol}`
+		template = <span className='mx-auto'>{currencyResultElem}</span> 
 	}
 
 	const changeCyrrency = () => {

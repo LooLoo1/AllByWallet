@@ -4,13 +4,15 @@ import navReducer from './reducers/NavElementsSlice'
 import currencyReducer from './reducers/CurrencySlice'
 import settingsReducer from './reducers/SettingsSlice'
 import walletsListReducer from './reducers/WalletsListSlice'
+import navElementsReducer from './reducers/NavElementsSlice'
 
 const rootReducer = combineReducers({
 	userReducer, 
 	navReducer, 
 	currencyReducer,
 	settingsReducer,
-	walletsListReducer
+	walletsListReducer,
+	navElementsReducer,
 })
 
 export const setupStore = () => {

@@ -111,7 +111,7 @@ export const Header = () => {
 
 
   return (
-	 <header className={`relative bg-white transition-all duration-[2s] ${headerStyles.bodyRadius} ${headerStyles.body}
+	 <header className={`relative bg-white shadow-block transition-all duration-[2s] ${headerStyles.bodyRadius} ${headerStyles.body}
 	 							child:absolute child:top-1/2 child:left-1/2 child:transform child:-translate-x-1/2`} style={{height: refHeight}}>
 		<div ref={currencyRef} className={`w-full flex flex-row flex-nowrap snap-x overflow-x-scroll overflow-y-hidden
 													transition-all duration-[2s] ${headerStyles.currencyPosition}`}>

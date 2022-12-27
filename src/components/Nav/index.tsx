@@ -64,7 +64,7 @@ export const Nav = () => {
 	}, [navElement])
 	
 	return (
-			<nav className={`fixed w-inherit transition-all duration-[2s] bottom-0 ${navStyles.body}`}>
+			<nav className={`fixed w-inherit child:shadow-block transition-all duration-[2s] bottom-0 ${navStyles.body}`}>
 				<div ref={navRef} className='relative px-8 py-5 bg-white rounded-t-3xl'> 
 					 <div className={`flex justify-between ${navStyles.frontNav}`}>
 						<div className='flex justify-between w-4/12'>

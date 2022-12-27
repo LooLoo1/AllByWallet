@@ -50,7 +50,9 @@ module.exports = {
 				'eye': '0px 4px 20px rgba(0, 0, 0, 0.25), inset 0px -7px 15px rgba(150, 150, 150, 0.25)',
 				'fire': '0px -15px 50px #FFFFFF, 0px -20px 50px #FFFFFF, 0px -15px 50px #FAFF00, 0px -10px 50px #FF9900, 0px -30px 100px #FF0000, 0px -30px 50px #FF0000, 0px -20px 150px #FF0000',
 				'fire-blue': '0px 15px 50px #FFFFFF, 0px 20px 50px #FFFFFF, 0px 15px 50px #62F6FF, 0px 10px 50px #0085FF, 0px 30px 100px #0000FF, 0px 30px 50px #0000FF, 0px 20px 150px #0000FF',
+				'block': '0px 0px 35px rgba(40, 40, 40, 0.15)',
 			},
+			
 			
 		},
 	},

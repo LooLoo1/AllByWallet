@@ -30,30 +30,6 @@ type Loading = {
 	error: string
 }
 
-export type template = {
-	// currentUser: string | null
-	// currentUser: {
-	// 	displayName: string
-	// 	email: string
-	// 	uid: string
-	// } | null
-	// settings?: {
-	// 	baseCurrency: TCurrency
-	// 	colorThema: 'white' | 'dark' | 'dynamic',
-	// 	whiteThemaId: string
-	// 	darkThemaId: string
-	// }
-	walletsList?: {
-		[key: string]: {
-			name: string
-			currency: Array<TCurrency>
-			type: string
-			values: Array<number>
-		}
-	}
-	// transaction?: transaction
-}
-
 export type CurentUser = {
 	displayName: string
 	email: string
@@ -64,11 +40,28 @@ export type UserState = {
 	currentUser: CurentUser | null
 } & Loading
 
+
+export type TCategoryItem = {
+	type: string
+	icon: string
+	category: string
+}
+
+export type TCategoryTitle = {
+	title: string
+	list: CategoryList[]
+	depth?: number
+}
+
+export type CategoryList = TCategoryItem | TCategoryTitle
+
 export type SettingsState = {
 	baseCurrency: TCurrency
 	colorThema: 'white' | 'dark' | 'dynamic',
 	whiteThemaId: string
 	darkThemaId: string
+	Сategories?: CategoryList[]
+	categoryFillter: string
 } 
 
 export type TWallet = {

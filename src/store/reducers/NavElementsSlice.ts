@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { ReactElement, ReactNode } from 'react'
+
+// import type { PayloadAction } from '@reduxjs/toolkit'
+// import { ReactElement, ReactNode } from 'react'
 
 // type duration = number
 
@@ -31,7 +32,6 @@ type NavElementsState = {
 export type NavElementsKeys = keyof NavElementsState;
 export type NavElements = typeof initialState[NavElementsKeys];
 
-
 const initialState:NavElementsState = {
 	navElement: {type: "hide"},
 	topElement: {type: "hide" }
@@ -41,15 +41,12 @@ export const navElementsSlice = createSlice({
 	name: 'navElements',
 	initialState,
 	reducers: {
-
-		// : PayloadAction<{key: NavElementsKeys,  description: NavElements}>
 		setNavElement(state, action) {
 			state.navElement = action.payload
 		},
 		setTopElement(state, action) {
 			state.topElement = action.payload
 		},
-		
 	}
 })
 

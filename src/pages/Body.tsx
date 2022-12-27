@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Outlet } from 'react-router-dom'
-import { useEffect } from 'react'; 
+import { useState, useEffect, useRef } from 'react'; 
 
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { userSlice } from '../store/reducers/UserSlice';
@@ -21,8 +21,13 @@ export const Body = () => {
 	// 	// }
 	// }, [])
 
+	// const { navElement } = useAppSelector(state => state.navElementsReducer)
+
+
   return (
-	 <div className='bg-gray w-[428px] mx-auto min-h-screen scroll-smooth relative'>
+	 <div className={`relative bg-gray w-[428px] mx-auto min-h-screen overflow-y-hidden scroll-smooth pb-32`}>
+							{/* transition-all duration-1000 
+	 					${(navElement.type === "hide")?"pb-10":"pb-32"} */}
 			{ currentUser && <Header/>}
 			
 			<Outlet/>

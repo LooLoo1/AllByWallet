@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ["./src/**/*.{ts,tsx}",
-				 "./src/**/**/*.{ts,tsx}",
-				 "./src/**/**/**/*.{ts,tsx}",
-				 "./src/**/**/**/**/*.{ts,tsx}",],
+	content: ["./src/**/*.{ts,tsx}",,],
 	theme: {
 		extend: {
 			fontFamily: {
@@ -61,6 +58,9 @@ module.exports = {
 		function ({ addVariant }) {
 			addVariant('child', '& > *');
 			addVariant('child-hover', '& > *:hover');
+			addVariant('hover-child', '&:hover > *');
+			addVariant('all-after', '& + *');
+			// p ~ ul
 			// addVariant('NavLink', '.active > &* *');
 	  }
 	],

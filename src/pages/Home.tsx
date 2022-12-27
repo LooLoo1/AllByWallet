@@ -8,9 +8,7 @@ export const Home = () => {
 	
 	useDynamicElement("topElement", {type: "currency"})
 	useDynamicElement("navElement", {type: "show"})
-	// useEffect(() => {
-	// 	useDynamic()
-	// }, [])
+
   return (
 	 <div>
 	 </div>

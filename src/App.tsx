@@ -1,8 +1,8 @@
 import * as React from 'react'; 
 import { useEffect } from 'react'; 
-import { Routes, Route, useLocation, useNavigate, Navigate } from 'react-router-dom'
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
-import { Login, Home, Body, Operations, Statistics, Settings } from './pages'
+import { Login, Home, Body, Operations, Statistics, Settings, New, Categiries } from './pages'
 import { useAppDispatch, useAppSelector } from './hooks/redux';
 
 
@@ -33,8 +33,8 @@ export const App = () => {
 					<Route path='/purposes' element={<div/>}/>
 					<Route path='/purposes/new' element={<div/>}/>
 
-					<Route path='/new' element={<div/>}/>
-					<Route path='/new/catogories' element={<div/>}/>
+					<Route path='/new' element={<New/>}/>
+					<Route path='/new/categories' element={<Categiries/>}/>
 					<Route path='/newcategory' element={<div/>}/>
 					<Route path='/newcategory/images' element={<div/>}/>
 

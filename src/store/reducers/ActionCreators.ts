@@ -1,29 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { doc, getDoc, setDoc, query, limitToLast, orderBy, collection, getDocs } from "firebase/firestore"; 
 import { db } from '../../firebase';
+import { doc, getDoc, setDoc, query, limitToLast, orderBy, collection, getDocs } from "firebase/firestore"; 
 import { settingsSlice } from '../../store/reducers/SettingsSlice';
 import { walletsListSlice } from '../../store/reducers/WalletsListSlice';
 import { ReserveCurrency } from "../../shared/api/ReserveCurrency";
 import { requestAPI } from "../../shared/api/CurrencyAPI";
+import { settings, walletTemplate } from "../../shared/lib/SettingsTemplates";
 
 import type { CurentUser} from './types'
 
-
-const settings = {
-	baseCurrency: 'USD',
-	colorThema: 'white',
-	whiteThemaId: 'standart',
-	darkThemaId: 'standart'
-}
-
-const walletTemplate = {
-	'#id': {
-		'currency': ['USD'],
-		'type': 'Wallet',
-		'name': 'Wallet',
-		'values': [0]
-	}
-}
 
 
 const {setSettings} = settingsSlice.actions
@@ -69,7 +54,6 @@ export const fetchUserData = createAsyncThunk(
 					thunkAPI.dispatch(setSettings(data.settings))
 					thunkAPI.dispatch(setWalletsList(data["Cards && Wallets"]))
 				}
-				console.log(data)
 				return data
 			}
 		} catch (e) {

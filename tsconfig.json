@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
 	 "baseUrl": ".",
-    "target": "es5",
+    "target": "es6",
 	 "module": "es2020",
 	 "moduleResolution": "node",
 	 "outDir": "./dist",
 	 "sourceMap": true,
+	 "downlevelIteration": true,
    //  "lib": [
    //    "DOM",
    //    // "dom.iterable",

@@ -20,7 +20,7 @@ export const Nav = () => {
 	const eyeAnimation = useClass('scale-0', 'scale-100')
 	const navClasses = useAnimate({
 		"show":  {
-			body: `translate-y-[0%]`,
+			body: `translate-y-0`,
 			subNav: `opacity-100`, // delay-[1s] 
 			frontNav: `delay-[1s] duration-[2s] visible opacity-100`,
 			backNav: `z-[-1]`
@@ -32,7 +32,7 @@ export const Nav = () => {
 			backNav: `z-[-1]`
 		},
 		"auxiliary": {
-			body: `translate-y-[0%]`,
+			body: `translate-y-0`,
 			subNav: `opacity-100`,
 			frontNav: `pointer-events-none opacity-0`,
 			backNav: `duration-[2s] z-[1] translate-y-1/2`,
@@ -46,7 +46,7 @@ export const Nav = () => {
 			backNav: `z-[-1]`,
 			// heightNav: navRef.current!.clientHeight + 20 + 'px'
 		}, 
-		prev: navElement.type, 
+		prev: navElement, //navElement.type 
 		hide: 'translate-y-[300%]'
 	}) 
 	const navStyles = navClasses.classes

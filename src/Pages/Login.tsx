@@ -6,7 +6,7 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase";
 import { userSlice } from '../store/reducers/UserSlice';
 import { useDynamicElement } from '../hooks/useDynamicElement';
-import { useAppDispatch, useAppSelector } from '../hooks/redux';
+import { useAppDispatch } from '../hooks/redux';
 import { fetchUserData } from '../store/reducers/ActionCreators'
 
 // import { IconGoogle } from '../Icons/Icons'

@@ -32,12 +32,16 @@ export const Balance = ({data}: props) => {
 			template = values.map((_, i) => {
 				// const templateInfo:string = values[i] + currency[i]
 				// const templateInfo:string = new Intl.NumberFormat(navigator.language, { style: 'currency', currency: currency[i] }).format(values[i])
-
-				const templateInfo = <><span>{new Intl.NumberFormat(navigator.language, { style: 'decimal', maximumFractionDigits: 2 }).format(values[i])}</span><span className='ml-2'>{Curencies[currency[i]].symbol}</span> </>
-				return (i < values.length - 1)
-						? <span className='snap-center scroll-ml-[45px] flex flex-row' key={values[i]}>{templateInfo}{circle}</span>
-						: <span className='snap-center' key={values[i]}>{templateInfo}</span>	
+				// if(values[i] !== 0){
+					const templateInfo = <><span>{new Intl.NumberFormat(navigator.language, { style: 'decimal', maximumFractionDigits: 2 }).format(values[i])}</span><span className='ml-2'>{Curencies[currency[i]].symbol}</span> </>
+					return (i < values.length - 1)
+							? <span className='snap-center scroll-ml-[45px] flex flex-row' key={values[i]}>{templateInfo}{circle}</span>
+							: <span className='snap-center' key={values[i]}>{templateInfo}</span>	
+				// }
 			})
+		}
+		if (values.length === 0) {
+			template = <span className='snap-center'>Don't have money</span>	
 		}
 
 	} else {

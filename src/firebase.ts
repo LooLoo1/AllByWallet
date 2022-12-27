@@ -3,7 +3,6 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 const firebaseConfig = {
 	// .env for CI/CD
@@ -22,10 +21,3 @@ const analytics = getAnalytics(app);
 
 export const db = getFirestore(app);
 export const auth = getAuth(app);
-// const provider = new GoogleAuthProvider();
-
-// export const singInWithGoogle = () => {
-// 	signInWithPopup(auth, provider).then((result) => {
-// 		console.log(result);
-// 	}).catch((error) => {console.log(error);})
-// }

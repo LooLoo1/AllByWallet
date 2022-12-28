@@ -64,6 +64,10 @@ export const Balance = ({data}: props) => {
 		dispatch(resetListOfCurrencyNames(list))
 		dispatch(resetListOfCurrencyValues(list))
 	},[list])
+
+	useEffect(()=>{
+		setShowCurrency(baseCurrency)
+	},[baseCurrency])
 	
    return (
 		<div className='flex-[0_0_100%] w-full h-full py-5 snap-center cursor-pointer' onClick={(!data)? () => {changeCyrrency()}: changeCyrrency}>

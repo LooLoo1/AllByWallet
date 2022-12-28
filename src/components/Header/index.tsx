@@ -119,7 +119,7 @@ export const Header = () => {
 			{currency && 
 				<>
 					<Balance/> 
-					{listOfKeys.reverse().map((el) => {
+					{listOfKeys.sort().map((el) => {
 						return <Balance data={list[el]} key={el}/> 
 					})}
 					{listOfNames.length > 1 && <Currency/>}

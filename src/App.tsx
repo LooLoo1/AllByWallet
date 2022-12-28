@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect } from 'react'; 
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
-import { Login, Home, Body, Operations, Statistics, Settings, New, Categiries } from './pages'
+import { Login, Home, Body, Operations, Statistics, Settings, New, Categiries, CardsChange } from './pages'
 import { useAppDispatch, useAppSelector } from './hooks/redux';
 
 
@@ -40,7 +40,7 @@ export const App = () => {
 
 					<Route path='/cards' element={<div/>}/>
 					<Route path='/cards/new' element={<div/>}/>
-					<Route path='/cards/change' element={<div/>}/>
+					<Route path='/cards/change' element={<CardsChange/>}/>
 
 					<Route path='/standby' element={<div/>}/>
 					<Route path='/settings' element={<Settings/>}/>

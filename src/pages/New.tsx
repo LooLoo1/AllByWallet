@@ -40,7 +40,7 @@ export const New = () => {
 	const dynamicSubmit = useClass('translate-y-full', '-translate-y-full') 
 	
 	// const wallwtsKeys = Object.keys(list)
-	const wallwtsKeys = Object.keys(list).reverse()
+	const wallwtsKeys = Object.keys(list).sort()
 	const defaulteIcon:string = 'QuestionMark'
 	const currencyKeys = Object.keys(Curencies)
 	const dateTime = new Date()
@@ -314,7 +314,7 @@ export const New = () => {
 		</Block>
 
 		<button className={`absolute z-50 translate left-1/2 -translate-x-1/2 bottom-0 transition-all duration-[2s] delay-[2s]
-								bg-black text-white Nunito font-semibold text-3xl px-7 py-3 rounded-2xl 
+								bg-black text-white font-Nunito font-semibold text-3xl px-7 py-3 rounded-2xl 
 								hover:bg-white hover:text-black ${dynamicSubmit}`} 
 					type='submit'>Save</button>
 	 </form>

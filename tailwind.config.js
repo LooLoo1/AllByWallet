@@ -44,7 +44,27 @@ module.exports = {
 						 conic-gradient(from 90deg at 50% 50%, rgba(255, 255, 255, 0) -35deg, 
 						   rgba(255, 255, 0, 0.8) 65deg, #FFFF00 115deg, rgba(255, 255, 255, 0) 325deg, 
 							rgba(255, 255, 0, 0.8) 425deg),
-						 linear-gradient(180deg, #0057FF 0%, #0057FF 95%, transparent 100%)`
+						 linear-gradient(180deg, #0057FF 0%, #0057FF 95%, transparent 100%)`,
+
+				'eye': `radial-gradient(6.5% 6.5% at 43% 43%, 
+							#FFFFFF 0%, 
+							#FFFFFF 80%, 
+							rgba(255, 255, 255, 0) 100%), 
+						radial-gradient(50% 50% at 50% 50%, 
+							#000000 25%, 
+							rgba(0, 0, 0, 0) 28%), 
+						radial-gradient(50% 50% at 50% 50%, 
+							rgba(255, 255, 255, 0.1) 52.4%, 
+							#FFFFFF 57%, 
+							#EBEBEB 99.99%), 
+						conic-gradient(from 90deg at 50% 50%, 
+							rgba(255, 255, 255, 0) -36.38deg, 
+							rgba(0, 255, 255, 0.81) 63deg, 
+							#00FFFF 115deg, 
+							rgba(255, 255, 255, 0) 323deg, 
+							rgba(0, 255, 255, 0.81) 423deg), 
+						linear-gradient(180deg, #FA00FF 0%, #FFFFFF 100%)`,
+
 			},
 			boxShadow: {
 				'eye': '0px 4px 20px rgba(0, 0, 0, 0.25), inset 0px -7px 15px rgba(150, 150, 150, 0.25)',

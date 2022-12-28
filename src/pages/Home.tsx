@@ -21,7 +21,7 @@ export const Home = () => {
 
 	const { currency } = useAppSelector(state => state.currencyReducer)
 	const { list = {}, listOfNames = [], listOfValues = [] } = useAppSelector(state => state.walletsListReducer)
-	const walletsKeys = Object.keys(list).reverse()
+	const walletsKeys = Object.keys(list).sort()
 
 	const [walletsListHeigth, setWalletsListHeigth] = useState<number>(1) 
 	const [walletId, setWalletId] = useState<string>(walletsKeys[0]) 

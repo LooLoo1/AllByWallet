@@ -20,7 +20,7 @@ export const WalletsList = (atributes:props) => {
 	const [indexItem, setIndexItem] = useState<number>(0)
 	const { changeValue, className = '', list = [], setDefaulte, ...elemProps } = atributes
 	const { list: listObj = {} } = useAppSelector(state => state.walletsListReducer)
-	const wallwtsKeys = list || Object.keys(listObj).reverse()
+	const wallwtsKeys = list || Object.keys(listObj).sort()
 
 	const [def, setDef] = useState<number>(1)
 	if (def && scrollRef.current && setDefaulte && list.includes(setDefaulte)) {	

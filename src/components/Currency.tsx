@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import { CurrencyItem } from './CurrencyItem'
 import { useAppDispatch, useAppSelector } from '../hooks/redux'

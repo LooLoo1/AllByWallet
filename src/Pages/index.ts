@@ -6,6 +6,7 @@ import { Statistics } from "./Statistics";
 import { Categiries } from "./Categiries";
 import { Settings } from "./Settings";
 import { New } from "./New";
+import { CardsChange } from "./CardsChange";
 
 
-export { Login, Home, Body, Operations, Statistics, Settings, New, Categiries};
+export { Login, Home, Body, Operations, Statistics, Settings, New, Categiries, CardsChange};

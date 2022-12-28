@@ -1,18 +1,21 @@
 import * as React from 'react'
 import{ useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { useAppSelector } from '../hooks/redux'
 import { DetailedHTMLProps, HTMLAttributes } from 'react'
 
-type props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> & 
-			{ 
-				name:string, 
-				changeValue:(anY:any)=>void,
-				list?: Array<string>, 
-				setDefaulte?:string, 
-			}
+import { IconAdd } from "./Icons/Icons";
+
+type props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> &
+	{
+		name?:string, 
+		changeValue?:(anY:any)=>void,
+		list?: Array<string>, 
+		setDefaulte?:string, 
+	}
 
 export const WalletsList = (atributes:props) => {
-	const scrollRef = useRef<HTMLDivElement>(null)
+	const scrollRef = useRef<HTMLDivElement>(null)	
 
 	const [indexItem, setIndexItem] = useState<number>(0)
 	const { changeValue, className = '', list = [], setDefaulte, ...elemProps } = atributes
@@ -75,19 +78,27 @@ export const WalletsList = (atributes:props) => {
 	}
 
 	useEffect(()=>{
-		changeValue((indexItem < wallwtsKeys.length)
-							? wallwtsKeys[indexItem] 
-							: wallwtsKeys[0])
+		if (changeValue) {
+			changeValue((indexItem < wallwtsKeys.length)
+								? wallwtsKeys[indexItem] 
+								: wallwtsKeys[0])
+		}
 	}, [indexItem])
 
   return (
 	<>
-		<div ref={scrollRef} {...elemProps} className={`w-full flex gap-6 snap-x snap-mandatory overflow-x-auto px-32 ${className}`} 
+		<div ref={scrollRef} {...elemProps} className={`w-full flex items-center gap-6 snap-x snap-mandatory overflow-x-auto px-32 ${className}`} 
 			  onScroll={()=>{onScroll()}}>
 			{wallwtsKeys.map((key:string) => {
 				return <div className={`shrink-0 snap-always snap-center bg-red-500 w-80 min-h-10`} key={key}>{key}</div>
 			})}
-			<div className={`shrink-0 snap-always snap-center bg-black w-80 min-h-10`} onClick={()=>{console.log(indexItem)}}></div>
+			<Link to='/cards/change' className={`shrink-0 snap-always snap-center w-80 min-h-10
+								 flex flex-col items-center transition-all duration-200 opacity-50 hover:opacity-100
+								 rounded-xl bg-white border-2 border-gray-300 py-6 `} 
+					onClick={()=>{console.log(indexItem)}}>
+						<IconAdd className='h-12'/>
+						<h3>Add New</h3>
+					</Link>
 		</div>
 	</>
   )

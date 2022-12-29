@@ -95,9 +95,9 @@ export const Home = () => {
 
 			<div className='grid grid-cols-3 gap-8 gap-y-4'>
 				{walletsListOfNames.map((el:TCurrency, i:number) => {
-					return <div key={el} className=''>
+					return <div key={el} className='flex flex-col items-center'>
 						<p className='font-OpenS text-xl font-semibold text-black text-center'>{el}</p>
-						<div className='font-OpenS text-sm font-semibold text-white bg-black text-center py-1 rounded-md'>{walletsListOfValues[i]}</div>
+						<div className='max-w-24 w-24 font-OpenS text-sm font-semibold text-white bg-black text-center py-1 rounded-md'>{walletsListOfValues[i]}</div>
 					</div>
 				})}
 			</div>

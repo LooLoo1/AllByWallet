@@ -87,7 +87,7 @@ export const WalletsList = (atributes:props) => {
 
   return (
 	<>
-		<div ref={scrollRef} {...elemProps} className={`w-full flex items-center gap-6 snap-x snap-mandatory overflow-x-auto px-32 ${className}`} 
+		<div ref={scrollRef} {...elemProps} className={`w-full flex items-center gap-6 snap-x snap-mandatory overflow-x-auto px-[50%] ${className}`} 
 			  onScroll={()=>{onScroll()}}>
 			{wallwtsKeys.map((key:string) => {
 				return <div className={`shrink-0 snap-always snap-center bg-red-500 w-80 min-h-10`} key={key}>{key}</div>

@@ -27,6 +27,9 @@ module.exports = {
 			width: {
 				inherit: 'inherit'
 			},
+			maxWidth: {
+				inherit: 'inherit'
+			},
 			height: {
 				inherit: 'inherit'
 			},

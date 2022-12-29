@@ -25,7 +25,7 @@ export const Body = () => {
 
 
   return (
-	 <div className={`relative bg-gray w-[428px] mx-auto min-h-screen overflow-y-hidden scroll-smooth pb-32`}>
+	 <div className={`relative bg-gray max-w-[744px] w-full mx-auto min-h-screen overflow-y-hidden scroll-smooth pb-32`}>
 							{/* transition-all duration-1000 
 	 					${(navElement.type === "hide")?"pb-10":"pb-32"} */}
 			{ currentUser && <Header/>}

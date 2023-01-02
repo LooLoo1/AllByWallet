@@ -7,7 +7,7 @@ import { useAnimate } from '../../hooks/useAnimate'
 import { IconHouse, IconOperations, IconStatistics, IconPurposes, IconSetting } from '../Icons/Icons'
 import { Eye } from '../Icons/Eye'
 import { AddCircleBtn, NavButton } from './ui'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { useAppSelector } from '../../hooks/redux';
 
 
 export const Nav = () => {
@@ -62,8 +62,6 @@ export const Nav = () => {
 		}
 		navClasses.updateHide(navElement.type)
 	}, [navElement])
-	
-	// max-w-[744px] w-full
 
 	return (
 			<nav className={`fixed max-w-inherit w-inherit child:shadow-block transition-all duration-[2s] bottom-0 ${navStyles.body}`}>

@@ -46,11 +46,11 @@ export const New = () => {
 	const dateTime = new Date()
 	// const timeOpen = new Date().toISOString().slice(0,-8)	
 	const timeOpen = `${
-							dateTime.getFullYear()}-${
-							dateTime.getMonth() + 1}-${
-							dateTime.getDate()}T${
-							(dateTime.getHours() < 10)? `0${dateTime.getHours()}`: dateTime.getHours()}:${
-							(dateTime.getMinutes() < 10)? `0${dateTime.getMinutes()}`: dateTime.getMinutes()}`
+		dateTime.getFullYear()}-${
+		(dateTime.getMonth() + 1 < 10)? `0${dateTime.getMonth() + 1}`: dateTime.getMonth() + 1}-${
+		(dateTime.getDate() < 10)? `0${dateTime.getDate()}`: dateTime.getDate()}T${
+		(dateTime.getHours() < 10)? `0${dateTime.getHours()}`: dateTime.getHours()}:${
+		(dateTime.getMinutes() < 10)? `0${dateTime.getMinutes()}`: dateTime.getMinutes()}`
 	
 	const [formCategoryType, setFormCategoryType] = useState<string>('')
 	const [formIconType, setFormIconType] = useState<string>(defaulteIcon)
@@ -313,7 +313,7 @@ export const New = () => {
 			</label>
 		</Block>
 
-		<button className={`absolute z-50 translate left-1/2 -translate-x-1/2 bottom-0 transition-all duration-[2s] delay-[2s]
+		<button className={`fixed z-50 translate left-1/2 -translate-x-1/2 bottom-0 transition-all duration-[2s] delay-[2s]
 								bg-black text-white font-Nunito font-semibold text-3xl px-7 py-3 rounded-2xl 
 								hover:bg-white hover:text-black ${dynamicSubmit}`} 
 					type='submit'>Save</button>

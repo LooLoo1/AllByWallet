@@ -7,6 +7,7 @@ import { Categiries } from "./Categiries";
 import { Settings } from "./Settings";
 import { New } from "./New";
 import { CardsChange } from "./CardsChange";
+import { CardsNew } from "./CardsNew";
 
 
-export { Login, Home, Body, Operations, Statistics, Settings, New, Categiries, CardsChange};
+export { Login, Home, Body, Operations, Statistics, Settings, New, Categiries, CardsChange, CardsNew};

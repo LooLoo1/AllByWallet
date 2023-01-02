@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { TCurrency } from "../store/reducers/types";
 
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
+import { useClass } from '../hooks/useClass'
 
 import { Block } from "../components/Block";
 import { WalletsList } from "../components/WalletsList";
@@ -32,6 +33,7 @@ export const Home = () => {
 	
 	const [walletSum, setWalletSum] = useState<string>('') 
 
+	const walletClass = useClass('opacity-0', 'opacity-100')
 
 	const WalletsListRef = useRef<HTMLDivElement>(null)
 
@@ -80,8 +82,8 @@ export const Home = () => {
 				</Link>
 			</div>
 
-			<div style={{height: walletsListHeigth + 'px'}}>
-				<div className='absolute w-full left-0' ref={WalletsListRef}>
+			<div className='transition-all duration-[2s]' style={{height: walletsListHeigth + 'px'}}>
+				<div className={`absolute w-full left-0 transition-all duration-1000 delay-[2s] ${walletClass}`} ref={WalletsListRef}>
 					<WalletsList list={walletsKeys} changeValue={setWallet}/>
 				</div>
 			</div>

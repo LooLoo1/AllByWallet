@@ -37,7 +37,7 @@ export const Header = () => {
 	
 	const headerClasses = useAnimate({
 		"currency":  {
-			bodyRadius: `rounded-3xl`,
+			bodyRadius: `rounded-b-3xl`,
 			currencyPosition: `-translate-y-1/2`,
 			titlePosition: `-translate-y-[300%]`,
 			searchPosition: `-translate-y-[300%]`,

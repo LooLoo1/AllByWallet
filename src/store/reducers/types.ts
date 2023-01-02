@@ -69,6 +69,9 @@ export type TWallet = {
 		currency: Array<TCurrency>
 		type: string
 		values: Array<number>
+		cardNumber?: string
+		expirationDate?: string
+		paymentNetwork?: string
 }
 
 export type WalletsListState = {

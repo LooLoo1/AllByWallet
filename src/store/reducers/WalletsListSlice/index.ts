@@ -122,6 +122,44 @@ export const updatedWalletsList = createAsyncThunk(
 	}
 )
 
+export const newCard = createAsyncThunk(
+	'walletsList/newCard',
+	async ({currentUser, typeCard, currency}: any, thunkAPI) => {
+		try {
+			if (currentUser) {
+
+				const template = {
+					'currency': [currency],
+					'type': 'Wallet',
+					'name': 'Wallet',
+					'values': [0]
+				}
+
+				const card = (typeCard === 'Wallet')
+					? template
+					: (typeCard === 'Card')
+					? {
+						"cardNumber": "Demo Demo Demo Demo",
+						"values": [ 0 ],
+						"paymentNetwork": "Visa",
+						"expirationDate": `${new Date().getDay()}/${new Date().getFullYear().toString().slice(2)}`,
+						"name": "Card",
+						"type": "Card",
+						"currency": [ currency ]
+					  }
+					: template
+
+				const data = {[`${Date.now()}`]: card }
+				setDoc(doc(db, "users", currentUser ), {'Cards && Wallets': data}, { merge: true });
+				return  {...initialState.list, ...data} 
+			}
+		}
+		catch (e) {
+			thunkAPI.rejectWithValue(e)
+		}
+	}
+)
+
 export const walletsListSlice = createSlice({
 	name: 'walletsList',
 	initialState,
@@ -156,6 +194,10 @@ export const walletsListSlice = createSlice({
 	},
 	extraReducers: {
 		[updatedWalletsList.fulfilled.type]: (state, action) => {
+			state.list = action.payload
+			localStorage.setItem('walletsList', JSON.stringify(action.payload))
+		},
+		[newCard.fulfilled.type]: (state, action) => {
 			state.list = action.payload
 			localStorage.setItem('walletsList', JSON.stringify(action.payload))
 		},

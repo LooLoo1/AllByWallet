@@ -36,6 +36,7 @@ module.exports = {
 			colors: {
 				'gray':'#F3EDED',
 				'gray-20':'#C2BEBE',
+				inherit: 'inherit'
 		 	},
 			transitionTimingFunction: {
 				'in-over': 'cubic-bezier(.5, 1.75, .75, 1.25)',
@@ -67,6 +68,8 @@ module.exports = {
 							rgba(255, 255, 255, 0) 323deg, 
 							rgba(0, 255, 255, 0.81) 423deg), 
 						linear-gradient(180deg, #FA00FF 0%, #FFFFFF 100%)`,
+				inherit: 'inherit',
+
 
 			},
 			boxShadow: {

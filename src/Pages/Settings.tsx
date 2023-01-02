@@ -57,7 +57,7 @@ export const Settings = () => {
 			</div>
 		 </Block>
 
-		 <button className={`flex mx-auto transition-all duration-2000 
+		 <button className={`flex mx-auto transition-all duration-[2s] 
 								bg-black text-white font-Nunito font-semibold text-3xl px-7 py-3 rounded-2xl 
 								hover:bg-white hover:text-black`} 
 					onClick={()=>{

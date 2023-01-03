@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
-import { Login, Home, Body, Operations, Statistics, Settings, New, Categiries, CardsChange, CardsNew, Cards } from './Pages'
+import { Login, Home, Body, Operations, Statistics, Settings, New, Categiries, CardsChange, CardsNew, Cards } from './pages'
 import { useAppSelector } from './hooks/redux'
 
 

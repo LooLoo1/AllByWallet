@@ -26,7 +26,8 @@
         "jsx-quotes": ["error", "prefer-single"],
         "no-duplicate-imports": "error",
 		  "prefer-const": "error",
-		  "semi": ["warn", "never"]
+		  "semi": ["warn", "never"],
+		  "@typescript-eslint/no-explicit-any": "off"
 	},
 	"settings": {
 		"import/resolver": {

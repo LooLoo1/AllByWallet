@@ -1,11 +1,10 @@
 import * as React from 'react'
-import{ useState, useEffect, useRef } from 'react'
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
+import{ useState, useEffect, useRef, DetailedHTMLProps, HTMLAttributes } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector } from '../hooks/redux'
 
-import { Wallet } from "../components/Wallet";
-import { IconAdd } from "./Icons/Icons";
+import { Wallet } from '../components/Wallet'
+import { IconAdd } from './Icons/Icons'
 
 type props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> &
 	{
@@ -87,16 +86,17 @@ export const WalletsList = (atributes:props) => {
 	}, [indexItem])
 
   return (
-	<div ref={scrollRef} {...elemProps} className={`w-full flex items-center gap-10 snap-x snap-mandatory overflow-x-auto px-[50%] ${className}`}
-		style={{filter: `drop-shadow(0px 0px 25px rgba(0, 0, 0, 0.15))`}} 
+	<div ref={scrollRef} {...elemProps} className={`w-full flex items-center gap-10 snap-x snap-mandatory overflow-x-auto ${className} ${(className.includes('px-'))?'':'px-[50%]'}`}
+		style={{filter: 'drop-shadow(0px 0px 25px rgba(0, 0, 0, 0.15))'}} 
 			onScroll={()=>{onScroll()}}>
 		{wallwtsKeys.map((key:string) => {
-			return <Wallet className={`shrink-0 snap-always snap-center bg-red-500 w-80 min-h-10`} key={key} data={listObj[key]}/>
+			return <Wallet className={'shrink-0 snap-always snap-center bg-red-500 w-80 min-h-10'} key={key} data={listObj[key]}/>
 		})}
 		<Link to='/cards/new' className={`shrink-0 snap-always snap-center w-80 min-h-10
 								flex flex-col items-center transition-all duration-200 opacity-50 hover:opacity-100
 								rounded-xl bg-white border-2 border-gray-300 py-6 `} 
-				onClick={()=>{console.log(indexItem)}}>
+				>
+					{/* onClick={()=>{console.log('')}} */}
 					<IconAdd className='h-12'/>
 					<h3>Add New</h3>
 				</Link>

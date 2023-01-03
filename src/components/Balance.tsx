@@ -2,11 +2,11 @@ import * as React from 'react'
 import { useState, useEffect }from 'react' 
 
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
-import { Converter } from "../shared/lib/Converter"
-import { Curencies } from "../shared/lib/Curencies"
+import { Converter } from '../shared/lib/Converter'
+import { Curencies } from '../shared/lib/Curencies'
 import { walletsListSlice } from '../store/reducers/WalletsListSlice'
 
-import type { TWallet } from "../store/reducers/types"
+import type { TWallet } from '../store/reducers/types'
 
 type props = {
 	data?: TWallet
@@ -71,7 +71,7 @@ export const Balance = ({data}: props) => {
 	
    return (
 		<div className='flex-[0_0_100%] w-full h-full py-5 snap-center cursor-pointer' onClick={(!data)? () => {changeCyrrency()}: changeCyrrency}>
-			<span className='text-base opacity-50 text-center font-OpenS font-semibold mx-auto block'>{(data)? data.name : "Global"} balance</span>
+			<span className='text-base opacity-50 text-center font-OpenS font-semibold mx-auto block'>{(data)? data.name : 'Global'} balance</span>
 			<h1 className={`flex flex-row flex-nowrap flex-center ${align} text-center overflow-x-scroll overflow-y-hidden font-OpenS font-semibol px-6 snap-mandatory snap-x`}>
 				{template} 
 			</h1>

@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { ReactElement } from 'react'
 
-import { CategoryTitle } from "../../components/CategoryTitle";
-import { CategoryItem } from "../../components/CategoryItem";
-import type { CategoryList as TCategoryList } from "../../store/reducers/types";
+import { CategoryTitle } from '../../components/CategoryTitle'
+import { CategoryItem } from '../../components/CategoryItem'
+import type { CategoryList as TCategoryList } from '../../store/reducers/types'
 
 export const GenerateCategory = (data: TCategoryList, fillter?:string):ReactElement<any,any> => { // parentUpdate?:() => void
 	

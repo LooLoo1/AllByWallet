@@ -1,10 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
 import { Category } from '../../../shared/lib/Category'
 import { SettingsState } from '../types'
-import { db } from '../../../firebase';
-import { doc, setDoc} from "firebase/firestore"; 
+import { db } from '../../../firebase'
+import { doc, setDoc} from 'firebase/firestore' 
 
 const localStore = localStorage.getItem('settings')
 const settingsStore = (typeof localStore === 'string')? JSON.parse(localStore) : null
@@ -25,7 +23,7 @@ export const updatedBaseCurrency = createAsyncThunk(
 	async ({currentUser, currency}: any, thunkAPI) => {
 		try {
 			if (currentUser) {
-				setDoc(doc(db, "users", currentUser ), {"settings": {'baseCurrency': currency}}, { merge: true });
+				setDoc(doc(db, 'users', currentUser ), {'settings': {'baseCurrency': currency}}, { merge: true })
 				return  {...initialState, ...{'baseCurrency': currency}} 
 			}
 		}

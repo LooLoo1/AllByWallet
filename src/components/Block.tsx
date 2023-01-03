@@ -2,11 +2,11 @@ import * as React from 'react'
 import { DetailedHTMLProps, HTMLAttributes } from 'react'
 
 type props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> & {type?:Rounded, children?: JSX.Element | JSX.Element[]}
-type Rounded = "all" | "t" | "b" | "l" | "r"
+type Rounded = 'all' | 't' | 'b' | 'l' | 'r'
 
 export const Block = ({children, type = 'all', className, ...defaulte}:props) => {
   
-	const borderRadius = (type === "all")? "rounded-3xl": `rounded-${type}-3xl`
+	const borderRadius = (type === 'all')? 'rounded-3xl': `rounded-${type}-3xl`
 	
 	return (
 	 <div {...defaulte} className={`py-6 px-8 bg-white shadow-block ${borderRadius} child:mt-6 first:child:mt-0 

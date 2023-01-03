@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { Icons } from "./Icons/Icons";
-import { TCategoryItem } from "../store/reducers/types";
+import { Icons } from './Icons/Icons'
+import { TCategoryItem } from '../store/reducers/types'
 
 import { DetailedHTMLProps, HTMLAttributes } from 'react'
 
 type props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> & {data:TCategoryItem}  
 
 export const CategoryItem = ({data, ...atribute}: props) => {
-	const {type, icon = "QuestionMark", category = "Select category"} = data
-
+	const {icon = 'QuestionMark', category = 'Select category'} = data
+	// type, 
 	const dataCategory = JSON.stringify(data)
 
   return (

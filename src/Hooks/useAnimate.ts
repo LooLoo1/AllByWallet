@@ -56,7 +56,7 @@ export const useAnimate = (options:TStartClasses, additial:TAdditional) => {
 
 	const updateHide = (type: string) => {
 		if (options[type]) {
-			if (prevType != "hide" && prevType != prev.type) {
+			if (prevType != 'hide' && prevType != prev.type) {
 				setClasses({...options[prevType], body: hide})
 				setTimeout(()=>{
 					setClassesAndType({...classes, ...options[type]}, prev.type, prev)

@@ -5,7 +5,7 @@ type TypeIcons = {
 	className?: string
 }
 
- export const Eye = ({color = 'black', className}:TypeIcons) => {
+ export const Eye = ({className}:TypeIcons) => {
 	
 	return (
 		<div className={className}>

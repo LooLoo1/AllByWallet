@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
 import { UserState } from '../types'
-
-import { fetchUserData } from '../ActionCreators';
+import { fetchUserData } from '../ActionCreators'
 
 const localStore = localStorage.getItem('user')
 const userStore = (typeof localStore === 'string')? JSON.parse(localStore) : null
@@ -23,7 +21,7 @@ export const userSlice = createSlice({
 			localStorage.setItem('user', JSON.stringify({displayName, email, uid}))
 			state.currentUser = {displayName, email, uid}
 			
-			//// Old, without secyrity
+			// // Old, without secyrity
 			// localStorage.setItem('user', JSON.stringify(action.payload.user))
 			// state.currentUser = action.payload
 		},

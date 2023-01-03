@@ -23,7 +23,7 @@
         "camelcase": "error",
         "spaced-comment": "error",
         "quotes": ["error", "single"],
-        "jsx-quotes": ["warm", "prefer-single"],
+        "jsx-quotes": ["error", "prefer-single"],
         "no-duplicate-imports": "error",
 		  "prefer-const": "error",
 		  "semi": ["warn", "never"]

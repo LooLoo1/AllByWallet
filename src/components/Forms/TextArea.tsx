@@ -1,7 +1,5 @@
 import * as React from 'react'
-import { DetailedHTMLProps, TextareaHTMLAttributes } from 'react'
-import { useState, useEffect, useRef } from 'react'
-
+import { useState, useEffect, useRef, DetailedHTMLProps, TextareaHTMLAttributes } from 'react'
 type props = DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>,HTMLTextAreaElement>
 
 
@@ -14,23 +12,24 @@ export const TextArea = (atributes:props) => {
 
 	const OnkeyDelate = (e:any) => {
 		const {key} = e
-		if (key === "Backspace" || key === "Delete") {
+		if (key === 'Backspace' || key === 'Delete') {
 			setAriaHeight(prev => prev - ariaFontSize)
 			
 		}
 	}
 
-	const inputRef = useRef(null);
+	const inputRef = useRef(null)
 
   useEffect(() => {
-    const size = window
-      .getComputedStyle(inputRef.current!, null)
-      .getPropertyValue("font-size");
+	if (inputRef.current) {
+		const size = window
+		  .getComputedStyle(inputRef.current, null)
+		  .getPropertyValue('font-size')
+		  setAriaFontSize(Number(size.split('px').join('')) * 2)
+		  setAriaHeight(ariaFontSize)
+	}
 
-		setAriaFontSize(Number(size.split('px').join('')) * 2);
-		setAriaHeight(ariaFontSize)
-
-  }, []);
+  }, [])
 
   return (
 	<textarea {...atributes} ref={inputRef}
@@ -39,7 +38,7 @@ export const TextArea = (atributes:props) => {
 				 className={`text-xl font-Nunito font-semibold text-black outline-none pt-2 resize-none
 				 				align-middle
 				 				 ${atributes.className}`}
-				 style={{height: ariaHeight + "px", ...atributes.style}}>		
+				 style={{height: ariaHeight + 'px', ...atributes.style}}>		
 	</textarea>
   )
 } 

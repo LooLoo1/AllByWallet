@@ -7,7 +7,7 @@ import { useAnimate } from '../../hooks/useAnimate'
 import { IconHouse, IconOperations, IconStatistics, IconPurposes, IconSetting } from '../Icons/Icons'
 import { Eye } from '../Icons/Eye'
 import { AddCircleBtn, NavButton } from './ui'
-import { useAppSelector } from '../../hooks/redux';
+import { useAppSelector } from '../../hooks/redux'
 
 
 export const Nav = () => {
@@ -19,34 +19,34 @@ export const Nav = () => {
 	const settingsAnimation = useClass('-rotate-180', 'rotate-90')
 	const eyeAnimation = useClass('scale-0', 'scale-100')
 	const navClasses = useAnimate({
-		"show":  {
-			body: `translate-y-0`,
-			subNav: `opacity-100`, // delay-[1s] 
-			frontNav: `delay-[1s] duration-[2s] visible opacity-100`,
-			backNav: `z-[-1]`
+		'show':  {
+			body: 'translate-y-0',
+			subNav: 'opacity-100', // delay-[1s] 
+			frontNav: 'delay-[1s] duration-[2s] visible opacity-100',
+			backNav: 'z-[-1]'
 		},
-		"hide": {
-			body: `translate-y-[300%]`,
-			subNav: `opacity-0 translate-y-full`,
-			frontNav: `transition-all delay-[1s] duration-[2s] visible opacity-100`,
-			backNav: `z-[-1]`
+		'hide': {
+			body: 'translate-y-[300%]',
+			subNav: 'opacity-0 translate-y-full',
+			frontNav: 'transition-all delay-[1s] duration-[2s] visible opacity-100',
+			backNav: 'z-[-1]'
 		},
-		"auxiliary": {
-			body: `translate-y-0`,
-			subNav: `opacity-100`,
-			frontNav: `pointer-events-none opacity-0`,
-			backNav: `duration-[2s] z-[1] translate-y-1/2`,
+		'auxiliary': {
+			body: 'translate-y-0',
+			subNav: 'opacity-100',
+			frontNav: 'pointer-events-none opacity-0',
+			backNav: 'duration-[2s] z-[1] translate-y-1/2',
 			// heightNav: `50%`
 		}
 	},{
 		other:{
-			body: `translate-y-[300%]`,
-			subNav: `opacity-50`,
-			frontNav: `duration-[1s] visible opacity-100`,
-			backNav: `z-[-1]`,
+			body: 'translate-y-[300%]',
+			subNav: 'opacity-50',
+			frontNav: 'duration-[1s] visible opacity-100',
+			backNav: 'z-[-1]',
 			// heightNav: navRef.current!.clientHeight + 20 + 'px'
 		}, 
-		prev: navElement, //navElement.type 
+		prev: navElement, // navElement.type 
 		hide: 'translate-y-[300%]'
 	}) 
 	const navStyles = navClasses.classes
@@ -68,13 +68,13 @@ export const Nav = () => {
 				<div ref={navRef} className='relative px-8 py-5 bg-white rounded-t-3xl'> 
 					 <div className={`flex justify-between ${navStyles.frontNav}`}>
 						<div className='flex justify-between w-4/12'>
-							<NavLink className={(e) => e.isActive ? "active" : " " } to='/home'>
-								<NavButton title="Home" >
+							<NavLink className={(e) => e.isActive ? 'active' : ' ' } to='/home'>
+								<NavButton title='Home' >
 									<IconHouse/>
 								</NavButton>
 							</NavLink>
-							<NavLink className={(e) => e.isActive ? "active" : " " } to='/operations'>
-								<NavButton title="Operations" >
+							<NavLink className={(e) => e.isActive ? 'active' : ' ' } to='/operations'>
+								<NavButton title='Operations' >
 									<IconOperations/>
 								</NavButton>
 							</NavLink>
@@ -86,14 +86,14 @@ export const Nav = () => {
 						</Link>
 
 						<div className='flex justify-between w-4/12'>
-							<NavLink className={`${(e:any) => e.isActive ? "active" : " " }`} to='/statistics'>
-								<NavButton title="Statistics" >
+							<NavLink className={`${(e:any) => e.isActive ? 'active' : ' ' }`} to='/statistics'>
+								<NavButton title='Statistics' >
 									<IconStatistics/>
 								</NavButton>
 							</NavLink>
 
-							<NavLink className={`${(e:any) => e.isActive ? "active" : " " }`} to='/purposes'>
-								<NavButton title="Purposes" >
+							<NavLink className={`${(e:any) => e.isActive ? 'active' : ' ' }`} to='/purposes'>
+								<NavButton title='Purposes' >
 									<IconPurposes/>
 								</NavButton>
 							</NavLink>

@@ -1,6 +1,6 @@
-import axios from "axios";
-import { doc, setDoc} from "firebase/firestore"; 
-import { db } from '../../firebase';
+import axios from 'axios'
+import { doc, setDoc} from 'firebase/firestore' 
+import { db } from '../../firebase'
 
 import type { currencyObject} from '../../store/reducers/types'
 
@@ -12,7 +12,7 @@ const options = {
 	  'X-RapidAPI-Key': process.env.REACT_APP_CURRENCY_API_KEY,
 	  'X-RapidAPI-Host': 'currencyapi-net.p.rapidapi.com'
 	}
-};
+}
 
 export const requestAPI = async () => {
 	try {
@@ -21,19 +21,19 @@ export const requestAPI = async () => {
 			const dateFormat = new Date().toISOString()
 			const data:currencyObject = {
 				results, 
-				updated: [dateFormat.split("T")[0], dateFormat.split("T")[1].split(".")[0]].join(' '), 
-				base: "USD"
+				updated: [dateFormat.split('T')[0], dateFormat.split('T')[1].split('.')[0]].join(' '), 
+				base: 'USD'
 			}
 
 			// Add to FireBase list
-			setDoc(doc(db, "currency", data.updated.split(' ')[0]), data, { merge: true });
+			setDoc(doc(db, 'currency', data.updated.split(' ')[0]), data, { merge: true })
 
 			return {
 				data,
-				id: data.updated.split(" ")[0]
+				id: data.updated.split(' ')[0]
 			}
 		})
 	} catch (err) {
-		console.log(err);
+		console.log(err)
 	}
-};
+}

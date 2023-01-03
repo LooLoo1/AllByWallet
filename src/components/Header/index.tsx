@@ -1,16 +1,16 @@
 import * as React from 'react'
 import { useState, useEffect, useRef } from 'react'
-import { useNavigate, useLocation} from 'react-router-dom';
+import { useNavigate, useLocation} from 'react-router-dom'
 
 import { Balance } from '../Balance'
 import { Currency } from '../Currency'
-import { Icons, IconSetting } from '../Icons/Icons';
+import { Icons, IconSetting } from '../Icons/Icons'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { settingsSlice } from '../../store/reducers/SettingsSlice';
+import { settingsSlice } from '../../store/reducers/SettingsSlice'
 import { fetchCurrency } from '../../store/reducers/ActionCreators'
 
 import { useAnimate } from '../../hooks/useAnimate'
-import { EscButton } from '../EscButton';
+import { EscButton } from '../EscButton'
 
 
 export const Header = () => {
@@ -28,48 +28,48 @@ export const Header = () => {
 	const titleRef = useRef<HTMLDivElement>(null)
 	const searchRef = useRef<HTMLDivElement>(null)
 	const [refHeight, setRefHeight] = useState(0)
-	const [lastTitle, setLastTitle] = useState("Title:")
+	const [lastTitle, setLastTitle] = useState('Title:')
 	const navigate = useNavigate()
 	const path = useLocation()
 
 
-	const styleOfButtons:string = "cursor-pointer transition-all w-[40px] h-[40px]"
+	const styleOfButtons = 'cursor-pointer transition-all w-[40px] h-[40px]'
 	
 	const headerClasses = useAnimate({
-		"currency":  {
-			bodyRadius: `rounded-b-3xl`,
-			currencyPosition: `-translate-y-1/2`,
-			titlePosition: `-translate-y-[300%]`,
-			searchPosition: `-translate-y-[300%]`,
+		'currency':  {
+			bodyRadius: 'rounded-b-3xl',
+			currencyPosition: '-translate-y-1/2',
+			titlePosition: '-translate-y-[300%]',
+			searchPosition: '-translate-y-[300%]',
 
 		},
-		"hide": {
-			bodyRadius: `rounded-b-3xl`,
-			currencyPosition: `-translate-y-[300%]`,
-			titlePosition: `-translate-y-[300%]`,
-			searchPosition: `-translate-y-[300%]`,
+		'hide': {
+			bodyRadius: 'rounded-b-3xl',
+			currencyPosition: '-translate-y-[300%]',
+			titlePosition: '-translate-y-[300%]',
+			searchPosition: '-translate-y-[300%]',
 
 		},
-		"title": {
-			bodyRadius: `rounded-b-3xl`,
-			currencyPosition: `-translate-y-[300%]`,
-			titlePosition: `-translate-y-1/2`,
-			searchPosition: `-translate-y-[300%]`,
+		'title': {
+			bodyRadius: 'rounded-b-3xl',
+			currencyPosition: '-translate-y-[300%]',
+			titlePosition: '-translate-y-1/2',
+			searchPosition: '-translate-y-[300%]',
 	
 		},
-		"search": {
-			bodyRadius: `rounded-b-3xl`,
-			currencyPosition: `-translate-y-[300%]`,
-			titlePosition: `-translate-y-[300%]`,
-			searchPosition: `-translate-y-1/2`,
+		'search': {
+			bodyRadius: 'rounded-b-3xl',
+			currencyPosition: '-translate-y-[300%]',
+			titlePosition: '-translate-y-[300%]',
+			searchPosition: '-translate-y-1/2',
 		}
 	},{
 		other:{
-			body: `translate-y-0`,
-			bodyRadius: `rounded-b-3xl`,
-			currencyPosition: `-translate-y-[300%]`,
-			titlePosition: `-translate-y-[300%]`,
-			searchPosition: `-translate-y-[300%]`,
+			body: 'translate-y-0',
+			bodyRadius: 'rounded-b-3xl',
+			currencyPosition: '-translate-y-[300%]',
+			titlePosition: '-translate-y-[300%]',
+			searchPosition: '-translate-y-[300%]',
 		}, 
 		prev: topElement,
 		hide: '-translate-y-[300%]',
@@ -80,15 +80,15 @@ export const Header = () => {
 
 
 	useEffect(() => {
-		if (topElement.type === 'currency') {
-			setRefHeight(currencyRef.current!.clientHeight)
+		if (topElement.type === 'currency' && currencyRef.current) {
+			setRefHeight(currencyRef.current.clientHeight)
 		}
-		if(topElement.type === 'title') {
+		if(topElement.type === 'title' && titleRef.current) {
 			setLastTitle(topElement.title)
-			setRefHeight(titleRef.current!.clientHeight)
+			setRefHeight(titleRef.current.clientHeight)
 		}
-		if(topElement.type === 'search') {
-			setRefHeight(searchRef.current!.clientHeight)
+		if(topElement.type === 'search' && searchRef.current) {
+			setRefHeight(searchRef.current.clientHeight)
 		}
 		if(topElement.type === 'hide') {
 			setRefHeight(1)
@@ -131,19 +131,19 @@ export const Header = () => {
 												flex flex-row flex-nowrap text-center justify-between items-center 
 												transition-all duration-[2s] ${headerStyles.titlePosition}`}>
 			<h2 className='font-OpenS font-semibold'>{headerText}</h2> 
-			<div onClick={()=>{navigate(-1); localStorage.removeItem(`form${path.pathname}`)}}>{(headerText.includes("Settings"))?<IconSetting className={`hover:rotate-45 ${styleOfButtons}`}/>: <EscButton className={`${styleOfButtons}`} color="white"/>}</div>
+			<div onClick={()=>{navigate(-1); localStorage.removeItem(`form${path.pathname}`)}}>{(headerText.includes('Settings'))?<IconSetting className={`hover:rotate-45 ${styleOfButtons}`}/>: <EscButton className={`${styleOfButtons}`} color='white'/>}</div>
 		</div>
 		<div ref={searchRef} className={`w-full px-8 py-5
 												flex flex-row flex-nowrap text-center justify-between items-center 
 												transition-all duration-[2s] ${headerStyles.searchPosition}`}>
 			<label htmlFor='search' className='cursor-pointer transition-all duration-100 hover:rotate-90'><Icons type='Search' className='min-w-[40px] min-h-[40px]' color='black'/></label>
-			<input id="search" type='text' placeholder='Сategories:' value={categoryFillter} onChange={(e)=>{dispatch(setCategoryFillter(e.target.value))}}
+			<input id='search' type='text' placeholder='Сategories:' value={categoryFillter} onChange={(e)=>{dispatch(setCategoryFillter(e.target.value))}}
 					 className='w-3/5 outline-none text-3xl font-OpenS font-semibold leading-normal rounded-xl px-4
 					 				focus-visible:border-none focus:border-none 
 									placeholder:text-center
 					 				placeholder:transition-all placeholder:duration-500
 									placeholder:focus:transparent '/>
-			<div onClick={()=>{navigate(-1); setTimeout(()=>{dispatch(cleanCategoryFillter())},1000) }}><EscButton className={`${styleOfButtons}`} color="white"/></div>
+			<div onClick={()=>{navigate(-1); setTimeout(()=>{dispatch(cleanCategoryFillter())},1000) }}><EscButton className={`${styleOfButtons}`} color='white'/></div>
 		</div>
 		
 	 </header>

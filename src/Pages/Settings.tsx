@@ -1,26 +1,26 @@
 import * as React from 'react'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import{ useNavigate } from 'react-router-dom'
 
-import { logout } from '../firebase';
-import { TCurrency } from "../store/reducers/types";
+import { logout } from '../firebase'
+import { TCurrency } from '../store/reducers/types'
 
-import { CurrenctSelect } from "../components/Forms/CurrenctSelect";
+import { CurrenctSelect } from '../components/Forms/CurrenctSelect'
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
-import { Block } from "../components/Block";
-import { useDynamicElement } from '../hooks/useDynamicElement';
+import { Block } from '../components/Block'
+import { useDynamicElement } from '../hooks/useDynamicElement'
 
-import { updatedBaseCurrency } from "../store/reducers/SettingsSlice";
+import { updatedBaseCurrency } from '../store/reducers/SettingsSlice'
 
 
 
 export const Settings = () => {
 
-	useDynamicElement("topElement", {
-		type: "title",
-		title: "Settings:"
+	useDynamicElement('topElement', {
+		type: 'title',
+		title: 'Settings:'
 	})
-	useDynamicElement("navElement", {type: "show"})
+	useDynamicElement('navElement', {type: 'show'})
 
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()

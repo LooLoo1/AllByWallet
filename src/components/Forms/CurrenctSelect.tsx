@@ -1,11 +1,10 @@
 import * as React from 'react'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, DetailedHTMLProps, HTMLAttributes } from 'react'
+// import { DetailedHTMLProps, HTMLAttributes } from 'react'
 import { useAppSelector } from '../../hooks/redux'
 
-import { Curencies } from "../../shared/lib/Curencies"
-import { IconArrow } from "../Icons/Icons"
+import { IconArrow } from '../Icons/Icons'
 
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
 
 type props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> & { defaulte:string, name?:string }
 

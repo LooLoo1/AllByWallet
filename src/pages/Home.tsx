@@ -1,27 +1,27 @@
 import * as React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { TCurrency } from "../store/reducers/types";
+import { TCurrency } from '../store/reducers/types'
 
-import { useAppDispatch, useAppSelector } from '../hooks/redux'
+import { useAppSelector } from '../hooks/redux'
 import { useClass } from '../hooks/useClass'
 
-import { Block } from "../components/Block";
-import { WalletsList } from "../components/WalletsList";
-import { CurrenctSelect } from "../components/Forms/CurrenctSelect";
-import { IconWallet } from "../components/Icons/Icons";
+import { Block } from '../components/Block'
+import { WalletsList } from '../components/WalletsList'
+import { CurrenctSelect } from '../components/Forms/CurrenctSelect'
+import { IconWallet } from '../components/Icons/Icons'
 
-import { Converter } from "../shared/lib/Converter"
-import { useDynamicElement } from '../hooks/useDynamicElement';
+import { Converter } from '../shared/lib/Converter'
+import { useDynamicElement } from '../hooks/useDynamicElement'
 
 
 export const Home = () => {
 	
-	useDynamicElement("topElement", {type: "currency"})
-	useDynamicElement("navElement", {type: "show"})
+	useDynamicElement('topElement', {type: 'currency'})
+	useDynamicElement('navElement', {type: 'show'})
 
 	const { currency } = useAppSelector(state => state.currencyReducer)
-	const { list = {}, listOfNames = [], listOfValues = [] } = useAppSelector(state => state.walletsListReducer)
+	const { list = {} } = useAppSelector(state => state.walletsListReducer)
 	const walletsKeys = Object.keys(list).sort()
 
 	const [walletsListHeigth, setWalletsListHeigth] = useState<number>(1) 
@@ -83,7 +83,7 @@ export const Home = () => {
 			</div>
 
 			<div className='transition-all duration-[2s]' style={{height: walletsListHeigth + 'px'}}>
-				<div className={`absolute w-full left-0 transition-all duration-1000 delay-[2s] ${walletClass}`} ref={WalletsListRef}>
+				<div className={`absolute w-full left-0 transition-all duration-1000 delay-[1.5s] ${walletClass}`} ref={WalletsListRef}>
 					<WalletsList list={walletsKeys} changeValue={setWallet}/>
 				</div>
 			</div>

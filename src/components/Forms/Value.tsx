@@ -9,7 +9,7 @@ export const Value = (atributes:props) => {
 		<input {...atributes} className={`absolute transform top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 overflow-hidden
 								text-xl font-OpenS font-semibold text-center bg-black text-white rounded-md
 								w-inherit h-inherit ${atributes.className} opacity-100`}
-					type="number" autoComplete="off"/>
+					type='number' autoComplete='off'/>
 	 </div>
   )
 } 

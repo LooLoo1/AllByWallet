@@ -14,14 +14,14 @@ export const AddCircleBtn = () => {
 		const onLeave  = () => {setAddBTN(false)} 
 
 		useEffect(() => {
-			const create = setInterval(() => {setAddBTN(true)}, timeVait);
-			const delite = setInterval(() => {setAddBTN(false)}, timeVait + timeDelate);
+			const create = setInterval(() => {setAddBTN(true)}, timeVait)
+			const delite = setInterval(() => {setAddBTN(false)}, timeVait + timeDelate)
 	
 			return () => {
 				clearInterval(create)
 				clearInterval(delite)
 			}
-		}, []);
+		}, [])
 	
 	return (
 		<button className={`

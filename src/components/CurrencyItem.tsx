@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { TCurrency } from "../store/reducers/types";
+import { TCurrency } from '../store/reducers/types'
 
 type props = {
 	currancyName:TCurrency,

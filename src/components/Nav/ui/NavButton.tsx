@@ -2,14 +2,14 @@ import * as React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 
-type NavButton = {
+type TNavButton = {
 	children?: React.ReactNode
 	title: string
 	defaulte?: boolean
 	disabled?: boolean
 }
 
-export const NavButton = ({children, title, disabled = false}:NavButton) => {
+export const NavButton = ({children, title, disabled = false}:TNavButton) => {
 	const [toggle, setToggle] = useState(false)
 	const navLink = useRef<HTMLButtonElement>(null)
 	const location = useLocation()

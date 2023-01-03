@@ -1,11 +1,11 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { db } from '../../firebase';
-import { doc, getDoc, setDoc, query, limitToLast, orderBy, collection, getDocs } from "firebase/firestore"; 
-import { settingsSlice } from '../../store/reducers/SettingsSlice';
-import { walletsListSlice } from '../../store/reducers/WalletsListSlice';
-import { ReserveCurrency } from "../../shared/api/ReserveCurrency";
-import { requestAPI } from "../../shared/api/CurrencyAPI";
-import { settings, walletTemplate } from "../../shared/lib/SettingsTemplates";
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import { db } from '../../firebase'
+import { doc, getDoc, setDoc, query, limitToLast, orderBy, collection, getDocs } from 'firebase/firestore' 
+import { settingsSlice } from '../../store/reducers/SettingsSlice'
+import { walletsListSlice } from '../../store/reducers/WalletsListSlice'
+import { ReserveCurrency } from '../../shared/api/ReserveCurrency'
+import { requestAPI } from '../../shared/api/CurrencyAPI'
+import { settings, walletTemplate } from '../../shared/lib/SettingsTemplates'
 
 import type { CurentUser} from './types'
 
@@ -19,40 +19,40 @@ export const fetchUserData = createAsyncThunk(
 	async (currentUser:CurentUser, thunkAPI) => {
 		try {
 			if (currentUser) {
-				const docRef = doc(db, "users", currentUser.uid)
+				const docRef = doc(db, 'users', currentUser.uid)
 				const docSnap = await getDoc(docRef)
 				let data = docSnap.data()
 				if (!data) {
-					setDoc(doc(db, "users", currentUser.uid), {
+					setDoc(doc(db, 'users', currentUser.uid), {
 						currentUser,
 						settings,
-						"Cards && Wallets": walletTemplate
-					}, { merge: true });
+						'Cards && Wallets': walletTemplate
+					}, { merge: true })
 					data = {
 						currentUser,
 						settings,
-						"Cards && Wallets": walletTemplate
+						'Cards && Wallets': walletTemplate
 					}
 				}
 				if (data) {
 					if (!data.currentUser) {
-						setDoc(doc(db, "users", currentUser.uid), {
+						setDoc(doc(db, 'users', currentUser.uid), {
 							currentUser
-						}, { merge: true });
+						}, { merge: true })
 						data = {...data, currentUser}
 					}
 					if (!data.settings) {
-						setDoc(doc(db, "users", currentUser.uid), {
+						setDoc(doc(db, 'users', currentUser.uid), {
 							settings
-						}, { merge: true });
+						}, { merge: true })
 						data = {...data, settings}
 					}
-					if (!data["Cards && Wallets"]) {
-						setDoc(doc(db, "users", currentUser.uid), {"Cards && Wallets": walletTemplate}, { merge: true });
-						data = {...data, "Cards && Wallets": walletTemplate}
+					if (!data['Cards && Wallets']) {
+						setDoc(doc(db, 'users', currentUser.uid), {'Cards && Wallets': walletTemplate}, { merge: true })
+						data = {...data, 'Cards && Wallets': walletTemplate}
 					}
 					thunkAPI.dispatch(setSettings(data.settings))
-					thunkAPI.dispatch(setWalletsList(data["Cards && Wallets"]))
+					thunkAPI.dispatch(setWalletsList(data['Cards && Wallets']))
 				}
 				return data
 			}
@@ -87,8 +87,8 @@ export const fetchCurrency = createAsyncThunk(
 		// =======================================
 
 		// Get last from FireBase
-		const citiesRef = collection(db, "currency")
-		const q = query(citiesRef, orderBy("updated"), limitToLast(1))
+		const citiesRef = collection(db, 'currency')
+		const q = query(citiesRef, orderBy('updated'), limitToLast(1))
 		const querySnapshot = await getDocs(q)
 		let lastCurrencyFB 
 		querySnapshot.forEach((doc) => {

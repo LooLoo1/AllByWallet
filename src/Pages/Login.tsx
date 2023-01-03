@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 
-import { auth } from "../firebase";
-import { userSlice } from '../store/reducers/UserSlice';
-import { useDynamicElement } from '../hooks/useDynamicElement';
-import { useAppDispatch } from '../hooks/redux';
+import { auth } from '../firebase'
+import { userSlice } from '../store/reducers/UserSlice'
+import { useDynamicElement } from '../hooks/useDynamicElement'
+import { useAppDispatch } from '../hooks/redux'
 import { fetchUserData } from '../store/reducers/ActionCreators'
 
 // import { IconGoogle } from '../Icons/Icons'
@@ -16,12 +16,12 @@ export const Login = () => {
 	const {setUser} = userSlice.actions
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
-	const [ErrorMessage, setErrorMessage] = useState('');
-	useDynamicElement("navElement", {type: "hide"})
-	useDynamicElement("topElement", {type: "hide"})
+	const [ErrorMessage, setErrorMessage] = useState('')
+	useDynamicElement('navElement', {type: 'hide'})
+	useDynamicElement('topElement', {type: 'hide'})
 	
 	const handleLogin = () => {
-		const provider = new GoogleAuthProvider();
+		const provider = new GoogleAuthProvider()
 		signInWithPopup(auth, provider).then((result) => {
 			const user = result.user
 			// if (user.uid === process.env.WHITE_LIST_ID) {

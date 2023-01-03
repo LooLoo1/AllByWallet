@@ -1,8 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { walletTemplate } from "../../../shared/lib/SettingsTemplates";
-import { db } from '../../../firebase';
-import { doc, getDoc, setDoc, Timestamp, updateDoc, arrayUnion } from "firebase/firestore"; 
+import { createSlice, createAsyncThunk} from '@reduxjs/toolkit'
+import { walletTemplate } from '../../../shared/lib/SettingsTemplates'
+import { db } from '../../../firebase'
+import { doc, getDoc, setDoc, Timestamp, updateDoc, arrayUnion } from 'firebase/firestore' 
 
 import type { WalletsListState, TCurrency } from '../types'
 
@@ -26,8 +25,8 @@ export const updatedWalletsList = createAsyncThunk(
 				const month = time.getMonth() + 1
 				const date = time.getDate()
 
-				const {icon = "QuestionMark", category = '', type = '-'} = JSON.parse(transactionData.type)
-				const transactionRef = await doc(db, `categories`, currentUser, `${year}`, `${month}`);
+				const {icon = 'QuestionMark', category = '', type = '-'} = JSON.parse(transactionData.type)
+				const transactionRef = await doc(db, 'categories', currentUser, `${year}`, `${month}`)
 
 				const {currency, wallet, note, event, amount: value } = transactionData
 
@@ -46,11 +45,11 @@ export const updatedWalletsList = createAsyncThunk(
 					)
 				}
 
-				const userRef = doc(db, `users`, currentUser)
+				const userRef = doc(db, 'users', currentUser)
 				const docSnap = await getDoc(userRef)
-				let data = docSnap.data()
+				const data = docSnap.data()
 
-				if(data && data["Cards && Wallets"][wallet]){
+				if(data && data['Cards && Wallets'][wallet]){
 					// Save in FireBase
 					try {
 						await updateDoc(transactionRef, informaton)
@@ -58,7 +57,7 @@ export const updatedWalletsList = createAsyncThunk(
 						await setDoc(transactionRef, informaton)
 					}
 
-					const updatedWallet = data["Cards && Wallets"][wallet]
+					const updatedWallet = data['Cards && Wallets'][wallet]
 
 					if(type === 'CONVERSION'){
 						currency.map((v:number) => updatedWallet.currency.indexOf(v)).forEach((currencyIndex:number, i:number) => {
@@ -82,7 +81,7 @@ export const updatedWalletsList = createAsyncThunk(
 						})
 					}
 					else {
-						const currencyIndex:number = updatedWallet.currency.indexOf(currency);
+						const currencyIndex:number = updatedWallet.currency.indexOf(currency)
 						if (currencyIndex < 0){
 							updatedWallet.currency.push(currency)
 							if(type === '+' || type === 'CORRECTION'){
@@ -111,8 +110,8 @@ export const updatedWalletsList = createAsyncThunk(
 							updatedWallet.values.splice(i, 1)
 						}
 					})
-					setDoc(doc(db, "users", currentUser), {"Cards && Wallets": {[wallet]: updatedWallet}}, { merge: true });
-					return  {...data["Cards && Wallets"], ...{[wallet]: updatedWallet}} 
+					setDoc(doc(db, 'users', currentUser), {'Cards && Wallets': {[wallet]: updatedWallet}}, { merge: true })
+					return  {...data['Cards && Wallets'], ...{[wallet]: updatedWallet}} 
 				}
 			}
 		}
@@ -139,18 +138,18 @@ export const newCard = createAsyncThunk(
 					? template
 					: (typeCard === 'Card')
 					? {
-						"cardNumber": "Demo Demo Demo Demo",
-						"values": [ 0 ],
-						"paymentNetwork": "Visa",
-						"expirationDate": `${new Date().getDay()}/${new Date().getFullYear().toString().slice(2)}`,
-						"name": "Card",
-						"type": "Card",
-						"currency": [ currency ]
+						'cardNumber': 'Demo Demo Demo Demo',
+						'values': [ 0 ],
+						'paymentNetwork': 'Visa',
+						'expirationDate': `${new Date().getDay()}/${new Date().getFullYear().toString().slice(2)}`,
+						'name': 'Card',
+						'type': 'Card',
+						'currency': [ currency ]
 					  }
 					: template
 
 				const data = {[`${Date.now()}`]: card }
-				setDoc(doc(db, "users", currentUser ), {'Cards && Wallets': data}, { merge: true });
+				setDoc(doc(db, 'users', currentUser ), {'Cards && Wallets': data}, { merge: true })
 				return  {...initialState.list, ...data} 
 			}
 		}

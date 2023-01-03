@@ -3,8 +3,8 @@ import { useEffect } from 'react'
 
 import { CurrencyItem } from './CurrencyItem'
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
-import { ExchangeRate } from "../shared/lib/ExchangeRate";
-import { walletsListSlice } from '../store/reducers/WalletsListSlice';
+import { ExchangeRate } from '../shared/lib/ExchangeRate'
+import { walletsListSlice } from '../store/reducers/WalletsListSlice'
 
 
 export const Currency = () => {

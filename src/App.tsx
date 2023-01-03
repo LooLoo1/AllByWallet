@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
-import { Login, Home, Body, Operations, Statistics, Settings, New, Categiries, CardsChange, CardsNew } from './pages'
+import { Login, Home, Body, Operations, Statistics, Settings, New, Categiries, CardsChange, CardsNew, Cards } from './pages'
 import { useAppSelector } from './hooks/redux'
 
 
@@ -38,7 +38,7 @@ export const App = () => {
 					<Route path='/newcategory' element={<div/>}/>
 					<Route path='/newcategory/images' element={<div/>}/>
 
-					<Route path='/cards' element={<div/>}/>
+					<Route path='/cards' element={<Cards/>}/>
 					<Route path='/cards/new' element={<CardsNew/>}/>
 					<Route path='/cards/change' element={<CardsChange/>}/>
 

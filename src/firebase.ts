@@ -1,8 +1,8 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth, signOut } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp } from 'firebase/app'
+import { getAnalytics } from 'firebase/analytics'
+import { getAuth, signOut } from 'firebase/auth'
+import { getFirestore } from 'firebase/firestore'
 
 
 const firebaseConfig = {
@@ -15,16 +15,16 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
-};
+}
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const app = initializeApp(firebaseConfig)
+const analytics = getAnalytics(app)
 
-export const db = getFirestore(app);
-export const auth = getAuth(app);
+export const db = getFirestore(app)
+export const auth = getAuth(app)
 
 export const logout = () => {
 	localStorage.removeItem('user')
 	localStorage.removeItem('walletsList')
 	signOut(auth)
- };
+ }

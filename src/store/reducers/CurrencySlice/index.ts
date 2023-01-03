@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import type { currencyData, currencyState } from '../types'
+import type { currencyState } from '../types'
 import { fetchCurrency } from '../ActionCreators'
 
 const initialState:currencyState = {

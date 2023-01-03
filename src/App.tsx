@@ -2,8 +2,8 @@ import * as React from 'react'
 import { useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
-import { Login, Home, Body, Operations, Statistics, Settings, New, Categiries, CardsChange, CardsNew, Cards } from './pages'
-import { useAppSelector } from './hooks/redux'
+import { Login, Home, Body, Operations, Statistics, Settings, New, Categiries, CardsChange, CardsNew, Cards } from '../src/pages'
+import { useAppSelector } from '../src/hooks/redux'
 
 
 export const App = () => {

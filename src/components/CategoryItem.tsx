@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Icons } from './Icons/Icons'
+import { Icons } from '../components/Icons/Icons'
 import { TCategoryItem } from '../store/reducers/types'
 
 import { DetailedHTMLProps, HTMLAttributes } from 'react'

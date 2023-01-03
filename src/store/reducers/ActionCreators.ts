@@ -7,7 +7,7 @@ import { ReserveCurrency } from '../../shared/api/ReserveCurrency'
 import { requestAPI } from '../../shared/api/CurrencyAPI'
 import { settings, walletTemplate } from '../../shared/lib/SettingsTemplates'
 
-import type { CurentUser} from './types'
+import type { CurentUser} from '../reducers/types'
 
 
 

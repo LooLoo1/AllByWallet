@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useState, DetailedHTMLProps, HTMLAttributes } from 'react'
 
-import { IconWallet, IconVisa } from './Icons/Icons'
+import { IconWallet, IconVisa } from '../components/Icons/Icons'
 import { TWallet } from '../store/reducers/types'
 
 type props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> 

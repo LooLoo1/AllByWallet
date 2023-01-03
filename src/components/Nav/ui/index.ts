@@ -1,4 +1,4 @@
-import { AddCircleBtn } from './AddCircleBtn'
-import { NavButton } from './NavButton'
+import { AddCircleBtn } from '../ui/AddCircleBtn'
+import { NavButton } from '../ui/NavButton'
 
 export {AddCircleBtn, NavButton}

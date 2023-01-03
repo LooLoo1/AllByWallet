@@ -6,7 +6,7 @@ import { useClass } from '../../hooks/useClass'
 import { useAnimate } from '../../hooks/useAnimate'
 import { IconHouse, IconOperations, IconStatistics, IconPurposes, IconSetting } from '../Icons/Icons'
 import { Eye } from '../Icons/Eye'
-import { AddCircleBtn, NavButton } from './ui'
+import { AddCircleBtn, NavButton } from '../Nav/ui'
 import { useAppSelector } from '../../hooks/redux'
 
 
@@ -29,7 +29,7 @@ export const Nav = () => {
 			body: 'translate-y-[300%]',
 			subNav: 'opacity-0 translate-y-full',
 			frontNav: 'transition-all delay-[1s] duration-[2s] visible opacity-100',
-			backNav: 'z-[-1]'
+			backNav: 'z-[-1]' 
 		},
 		'auxiliary': {
 			body: 'translate-y-0',

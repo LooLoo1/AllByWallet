@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useAppSelector } from '../hooks/redux'
 
 import { Wallet } from '../components/Wallet'
-import { IconAdd } from './Icons/Icons'
+import { IconAdd } from '../components/Icons/Icons'
 
 type props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> &
 	{

@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { useState, useEffect, useMemo, DetailedHTMLProps, HTMLAttributes } from 'react'
-// import { DetailedHTMLProps, HTMLAttributes } from 'react'
 import { useAppSelector } from '../../hooks/redux'
 
 import { IconArrow } from '../Icons/Icons'

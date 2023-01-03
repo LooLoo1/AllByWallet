@@ -41,7 +41,7 @@ export const Balance = ({data}: props) => {
 			})
 		}
 		if (values.length === 0) {
-			template = <span className='snap-center'>Don't have money</span>	
+			template = <span className='snap-center'>{'Don\'t have money'}</span>	
 		}
 
 	} else {

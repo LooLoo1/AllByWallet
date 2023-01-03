@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { IconAdd } from './Icons/Icons'
+import { IconAdd } from '../components/Icons/Icons'
 
 export const EscButton = ({className, color}:{className:string, color:string}) => {
 	return (<div className={`relative bg-black rounded-xl hover-child:rotate-0 ${className}`}>

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useState, useRef, DetailedHTMLProps, HTMLAttributes } from 'react'
-import { IconArrow } from './Icons/Icons'
+import { IconArrow } from '../components/Icons/Icons'
 import { GenerateCategory } from '../shared/lib/GenerateCategory'
 
 import { TCategoryTitle } from '../store/reducers/types'
